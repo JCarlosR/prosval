@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="plugins/jquery-datatables-editable/datatables.css" />
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="plugins/morris/morris.css">
+
+    <link rel="stylesheet" type="text/css" href="css/jobadi.css">
     <!-- DataTables -->
     <link href="plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -56,10 +58,10 @@
             </div>
             <!-- Button mobile view to collapse sidebar menu -->
             <div class="navbar navbar-default" role="navigation">
-
+                
             </div>
         </div>
-        
+
         <div class="left side-menu">
                     <!-- User -->
             <div class="user-box">
@@ -114,6 +116,7 @@
         </div>
 
         @yield('content')
+        @yield('styles')
     
 <script>
     var resizefunc = [];

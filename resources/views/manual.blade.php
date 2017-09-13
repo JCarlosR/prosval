@@ -38,7 +38,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="mensaje" class="control-label">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" class="form-control" maxlength="140" rows="2" placeholder="Máximo 140 caracteres..."></textarea>
+                            <textarea id="textarea" name="mensaje" class="form-control" maxlength="140" rows="2" placeholder="Máximo 140 caracteres..."></textarea>
                         </div>
                     </div>
                 </div>
