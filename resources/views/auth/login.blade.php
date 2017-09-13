@@ -50,9 +50,9 @@
         </div>
 
         <div class="form-group m-t-30 m-b-0">
-            <div class="col-sm-12">
+            <!--<div class="col-sm-12">
                 <a href="{{ route('password.request') }}" class="text-muted"><i class="fa fa-lock m-r-5"></i> Olvidó su contraseña?</a>
-            </div>
+            </div> -->
         </div>
         <div class="col-sm-12 text-center">
             <p class="text-muted">¿No tiene una cuenta? <a href="{{ url('/register') }}" class="text-primary m-l-5"><b>Regístrate</b></a></p>

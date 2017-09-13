@@ -1,65 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-        <meta name="author" content="Coderthemes">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+    <meta name="author" content="Coderthemes">
+    <!-- App Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- form Uploads -->
+    <link href="plugins/fileuploads/css/dropify.min.css" rel="stylesheet" type="text/css" />
+    <!-- App title -->
+    <title>Prosval</title>
+    <!-- Editatable  Css-->
+    <link rel="stylesheet" href="plugins/magnific-popup/dist/magnific-popup.css" />
+    <link rel="stylesheet" href="plugins/jquery-datatables-editable/datatables.css" />
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="plugins/morris/morris.css">
+    <!-- DataTables -->
+    <link href="plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
+     <!-- Plugins css-->
+    <link href="plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="plugins/multiselect/css/multi-select.css"  rel="stylesheet" type="text/css" />
+    <link href="plugins/select2/dist/css/select2.css" rel="stylesheet" type="text/css">
+    <link href="plugins/select2/dist/css/select2-bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet" />
+    <link href="plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- App css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/core.css" rel="stylesheet" type="text/css" />
+    <link href="css/components.css" rel="stylesheet" type="text/css" />
+    <link href="css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="css/responsive.css" rel="stylesheet" type="text/css" />
 
-        <!-- App Favicon -->
-        <link rel="shortcut icon" href="images/favicon.ico">
-
-        <!-- form Uploads -->
-        <link href="plugins/fileuploads/css/dropify.min.css" rel="stylesheet" type="text/css" />
-        
-        <!-- App title -->
-        <title>Prosval</title>
-
-        <!-- Editatable  Css-->
-        <link rel="stylesheet" href="plugins/magnific-popup/dist/magnific-popup.css" />
-        <link rel="stylesheet" href="plugins/jquery-datatables-editable/datatables.css" />
-
-        <!--Morris Chart CSS -->
-        <link rel="stylesheet" href="plugins/morris/morris.css">
-
-        <!-- DataTables -->
-        <link href="plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-        <link href="plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-         <!-- Plugins css-->
-        <link href="plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
-        <link href="plugins/multiselect/css/multi-select.css"  rel="stylesheet" type="text/css" />
-        <link href="plugins/select2/dist/css/select2.css" rel="stylesheet" type="text/css">
-        <link href="plugins/select2/dist/css/select2-bootstrap.css" rel="stylesheet" type="text/css">
-        <link href="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
-        <link href="plugins/switchery/switchery.min.css" rel="stylesheet" />
-        <link href="plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
-        <link href="plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
-        <link href="plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
-        <link href="plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
-        <!-- App css -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/core.css" rel="stylesheet" type="text/css" />
-        <link href="css/components.css" rel="stylesheet" type="text/css" />
-        <link href="css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="css/pages.css" rel="stylesheet" type="text/css" />
-        <link href="css/menu.css" rel="stylesheet" type="text/css" />
-        <link href="css/responsive.css" rel="stylesheet" type="text/css" />
-
-        <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-        <script src="js/modernizr.min.js"></script>
-
-    </head>
+    <script src="js/modernizr.min.js"></script>
+</head>
 
 <body class="fixed-left">
     <!-- Begin page -->
@@ -72,87 +56,62 @@
             </div>
             <!-- Button mobile view to collapse sidebar menu -->
             <div class="navbar navbar-default" role="navigation">
-                <div class="container">
-                    <!-- Page title -->
-                    <ul class="nav navbar-nav navbar-left">
-                        <li>
-                            <button class="button-menu-mobile open-left">
-                                <i class="zmdi zmdi-menu"></i>
-                            </button>
-                        </li>
-                        <li>
-                            <h4 class="page-title">Bienvenido</h4>
-                        </li>
-                    </ul>
-                </div><!-- end container -->
-            </div><!-- end navbar -->
-        </div>
 
+            </div>
+        </div>
+        
         <div class="left side-menu">
-                <div class="sidebar-inner slimscrollleft">
                     <!-- User -->
-                    <div class="user-box">
-                        <div class="user-img">
-                            <img src="images/users/avatar-3.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
-                            <div class="user-status online"><i class="zmdi zmdi-dot-circle"></i></div>
-                        </div>
-                        <h5><a href="#">Suyon of shit</a> </h5>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#" >
-                                    <i class="zmdi zmdi-settings"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/logout') }}"
-                                    onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                    <i class="zmdi zmdi-power"></i>
-                                </a>
-
-                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- End User -->
-
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                        <ul>
-                            <li class="text-muted menu-title">Menú</li>
-
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-view-toc"></i> <span> Campaña </span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="/manual">Crear manual</a></li>
-                                    <li><a href="/automatico">Crear automático</a></li>
-                                    <li><a href="/modificar-y-consultar">Modificar y Consultar</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-accounts-alt"></i><span> Contactos </span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="/datos">Datos</a></li>
-                                    <li><a href="/lista-spam">Lista SPAM</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="/inbox" class="waves-effect"><i class="zmdi zmdi-comment-text-alt"></i><span> Inbox </span></a>
-                            </li>
-
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <!-- Sidebar -->
-                    <div class="clearfix"></div>
-
+            <div class="user-box">
+                <div class="user-img">
+                    <img src="images/users/avatar-3.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+                    <div class="user-status online"><i class="zmdi zmdi-dot-circle"></i></div>
                 </div>
+                <h5><a href="#">Suyon of shit</a> </h5>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#" >
+                            <i class="zmdi zmdi-settings"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/logout') }}"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            <i class="zmdi zmdi-power"></i>
+                        </a>
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <!-- End User -->
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <ul>
+                    <li class="text-muted menu-title">Menú</li>
+                    <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-view-toc"></i> <span> Campaña </span> <span class="menu-arrow"></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="/manual">Crear manual</a></li>
+                            <li><a href="/automatico">Crear automático</a></li>
+                            <li><a href="/modificar-y-consultar">Modificar y Consultar</a></li>
+                        </ul>
+                    </li>
+                    <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-accounts-alt"></i><span> Contactos </span> <span class="menu-arrow"></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="/datos">Datos</a></li>
+                            <li><a href="/lista-spam">Lista SPAM</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/inbox" class="waves-effect"><i class="zmdi zmdi-comment-text-alt"></i><span> Inbox </span></a>
+                    </li>
+                </ul>
+            </div>
         </div>
-            <!-- Left Sidebar End -->
 
         @yield('content')
     

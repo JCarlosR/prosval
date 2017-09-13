@@ -1,91 +1,63 @@
-@extends('layouts.app')
+@extends('layouts.chat')
 
 @section('content')
-<!-- ============================================================== -->
-<!-- Start right Content here -->
-<!-- ============================================================== -->
+
 <div class="content-page">
-    <!-- Start content -->
+
     <div class="content">
         <div class="container">
-
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="card-box">
-                        <form role="search" class="app-search">
-                            <input type="text" placeholder="Buscar..."
-                                   class="form-control">
-                            <a href=""><i class="fa fa-search"></i></a>
-                        </form>
+                <div class="col-lg-3 col-md-6">
+                                <div class="card-box">
 
-                        <ul class="list-group m-b-0 user-list">
-                            <li class="list-group-item"> 
-                                <a href="#" class="user-list-item">
-                                    <div class="avatar">
-                                        <img src="images/users/avatar-6.jpg" alt="">
+                                    <h4 class="header-title m-t-0 m-b-30">Team Members</h4>
+
+                                    <div class="inbox-widget nicescroll" style="height: 315px;">
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="images/users/avatar-1.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Chadengle</p>
+                                                <p class="inbox-item-text">044352345</p>
+                                                <p class="inbox-item-date">13:40 PM</p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="images/users/avatar-2.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Tomaslau</p>
+                                                <p class="inbox-item-text">044352345</p>
+                                                <p class="inbox-item-date">13:34 PM</p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="images/users/avatar-3.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Stillnotdavid</p>
+                                                <p class="inbox-item-text">044352345</p>
+                                                <p class="inbox-item-date">13:17 PM</p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="images/users/avatar-4.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Kurafire</p>
+                                                <p class="inbox-item-text">044352345</p>
+                                                <p class="inbox-item-date">12:20 PM</p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="images/users/avatar-5.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Shahedk</p>
+                                                <p class="inbox-item-text">044352345</p>
+                                                <p class="inbox-item-date">10:15 AM</p>
+                                            </div>
+                                        </a>
                                     </div>
-                                    <div>
-		                                <div class="dropdown pull-right">
-		                                <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
-		                                    <i class="zmdi zmdi-more-vert"></i>
-		                                </a>
-		                                <ul class="dropdown-menu" role="menu">
-		                                    <li><a href="#"><small>Spam</small></a></li>
-		                                </ul>
-		                            	</div>
-                                        <span class="name">Vendedor</span><br>
-                                        <span class="name"><small>401504</small></span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="list-group m-b-1 user-list">
-                            <li class="list-group-item"> 
-                                <a href="#" class="user-list-item">
-                                    <div class="avatar">
-                                        <img src="images/users/avatar-1.jpg" alt="">
-                                    </div>
-                                    <div>
-		                                <div class="dropdown pull-right">
-		                                <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
-		                                    <i class="zmdi zmdi-more-vert"></i>
-		                                </a>
-		                                <ul class="dropdown-menu" role="menu">
-		                                    <li><a href="#"><small>Spam</small></a></li>
-		                                </ul>
-		                            	</div>
-                                        <span class="name">Vendedor1</span><br>
-                                        <span class="name"><small>401504</small></span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="list-group m-b-1 user-list">
-                            <li class="list-group-item"> 
-                                <a href="#" class="user-list-item">
-                                    <div class="avatar">
-                                        <img src="images/users/avatar-2.jpg" alt="">
-                                    </div>
-                                    <div>
-		                                <div class="dropdown pull-right">
-		                                <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
-		                                    <i class="zmdi zmdi-more-vert"></i>
-		                                </a>
-		                                <ul class="dropdown-menu" role="menu">
-		                                    <li><a href="#"><small>Spam</small></a></li>
-		                                </ul>
-		                            	</div>
-                                        <span class="name">Vendedor2</span><br>
-                                        <span class="name"><small>401504</small></span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                                </div>
+                            </div>
                 <div class="col-lg-9">
                     <div class="bg-picture card-box">
-
                     	<div class="timeline">
                             <article class="timeline-item alt">
                                 <div class="timeline-desk">
@@ -93,7 +65,7 @@
                                         <div class="panel-body">
                                             <h4 class="text-danger">Vendedor 1</h4>
                                             <p class="timeline-date text-muted"><small>08:25 am</small></p>
-                                            <p>Esto esta muy tranca de hacer, ya me esta llegando al jimmo </p>
+                                            <p>Esto esta muy tranca de hacer,  </p>
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +74,7 @@
                                 <div class="timeline-desk">
                                     <div class="panel">
                                         <div class="panel-body">  
-                                            <p>consectetur adipisicing elit. Iusto, optio,dolorum ah ya veaamos </p>
+                                            <p>consectetur adipisicing elit. Iusto </p>
                                             <p class="timeline-date text-muted"><small>08:25 am</small></p>
                                         </div>
                                     </div>
@@ -112,7 +84,7 @@
 
                     </div>
                     <!--/ meta -->
-                    <form method="post" class="card-box">
+                    <form method="post" class="panel-body">
                         <span class="input-icon icon-right">
                             <textarea rows="2" class="form-control" maxlength="140"placeholder="Escribir un mensaje aquí"></textarea>
                         </span>
@@ -142,10 +114,6 @@
         </div> <!-- container -->
 
     </div> <!-- content -->
-
-    <footer class="footer">
-        2016 - 2017 © Adminto.
-    </footer>
 
 </div>
 <!-- End content-page -->

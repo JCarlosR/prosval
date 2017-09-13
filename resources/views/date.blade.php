@@ -13,50 +13,50 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="field-1" class="control-label">Nombre</label>
-                            <input type="text" class="form-control" id="field-1">
+                            <label for="nombre" class="control-label">Nombre</label>
+                            <input type="text" name="nombre" class="form-control" id="nombre">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-2" class="control-label">Teléfono</label>
-                            <input type="text" class="form-control" id="field-2">
+                            <label for="telefono" class="control-label">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono">
                         </div>
                     </div>                        
                     <div class="col-md-8">
                         <div class="form-group">
-                            <label for="field-3" class="control-label">Correo</label>
-                            <input type="email" class="form-control" id="field-3">
+                            <label for="correo" class="control-label">Correo</label>
+                            <input type="email" class="form-control" id="correo" name="correo">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-4" class="control-label">Tipo</label>
-                            <input type="text" class="form-control" id="field-4">
+                            <label for="field-4" class="tipo">Tipo</label>
+                            <input type="text" class="form-control" id="tipo" name="tipo">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-5" class="control-label">Colonia</label>
-                            <input type="text" class="form-control" id="field-5">
+                            <label for="colonia" class="control-label">Colonia</label>
+                            <input type="text" class="form-control" id="colonia" name="colonia">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-6" class="control-label">Estatus</label>
-                            <input type="text" class="form-control" id="field-6">
+                            <label for="estatus" class="control-label">Estatus</label>
+                            <input type="text" class="form-control" id="estatus" name="estatus">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group no-margin">
-                            <label for="field-7" class="control-label">Link</label>
-                            <textarea class="form-control autogrow" id="field-7" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                            <label for="link" class="control-label">Link</label>
+                            <input type="url" required parsley-type="url" class="form-control" name="link" id="link" placeholder="URL">
                         </div>
                     </div>
                 </div>
@@ -81,50 +81,50 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="field-1" class="control-label">Nombre</label>
-                            <input type="text" class="form-control" id="field-1" placeholder="Tiger Nixon">
+                            <label for="nombre" class="control-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tiger Nixon">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-2" class="control-label">Teléfono</label>
-                            <input type="text" class="form-control" id="field-2" placeholder="948574256">
+                            <label for="telefono" class="control-label">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="948574256">
                         </div>
                     </div>                        
                     <div class="col-md-8">
                         <div class="form-group">
-                            <label for="field-3" class="control-label">Correo</label>
-                            <input type="email" class="form-control" id="field-3" placeholder="prosval@gmail.com">
+                            <label for="correo" class="control-label">Correo</label>
+                            <input type="email" class="form-control" id="correo" name="correo" placeholder="prosval@gmail.com">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-4" class="control-label">Tipo</label>
-                            <input type="text" class="form-control" id="field-4" placeholder="Tipo">
+                            <label for="tipo" class="control-label">Tipo</label>
+                            <input type="text" class="form-control" id="tipo" name="tipo" placeholder="Tipo">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-5" class="control-label">Colonia</label>
-                            <input type="text" class="form-control" id="field-5" placeholder="Colonia">
+                            <label for="colonia" class="control-label">Colonia</label>
+                            <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-6" class="control-label">Estatus</label>
-                            <input type="text" class="form-control" id="field-6" placeholder="Estatus">
+                            <label for="estatus" class="control-label">Estatus</label>
+                            <input type="text" class="form-control" id="estatus" name="estatus" placeholder="Estatus">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group no-margin">
-                            <label for="field-7" class="control-label">Link</label>
-                            <textarea class="form-control autogrow" id="field-7" placeholder="link" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                            <label for="link" class="control-label">Link</label>
+                            <input type="url" required parsley-type="url" class="form-control" name="link" id="link" placeholder="URL">
                         </div>
                     </div>
                 </div>

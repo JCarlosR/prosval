@@ -14,31 +14,31 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-1" class="control-label">Fecha campaña</label>
-                            <input type="text" class="form-control" placeholder="11/11/2017" id="datepicker">
+                            <label for="datepicker" class="control-label">Fecha campaña</label>
+                            <input type="text" class="form-control" placeholder="11/11/2017" id="datepicker" name="datepicker">
                         </div>
                     </div> 
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="field-1" class="control-label">Nombre</label>
-                            <input type="text" class="form-control" id="field-1" placeholder="Tiger Nixon">
+                            <label for="titulo" class="control-label">Nombre campaña</label>
+                            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Tiger Nixon">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-2" class="control-label">Fecha envío campaña</label>
-                            <input type="text" class="form-control" placeholder="11/11/2017" id="datepicker-autoclose">
+                            <label for="datepicker-autoclose" class="control-label">Fecha envío campaña</label>
+                            <input type="text" class="form-control" placeholder="11/11/2017" id="datepicker-autoclose" name="datepicker-autoclose">
                         </div>
                     </div>                        
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-2" class="control-label">Hora (Formato 24H)</label>
+                            <label for="timepicker2" class="control-label">Hora envío campaña</label>
                                 <div class="bootstrap-timepicker">
-                                    <input id="timepicker2" type="text" class="form-control">
+                                    <input id="timepicker2" name="timepicker2" type="text" class="form-control">
                                 </div>
 
                         </div>
@@ -47,14 +47,14 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-4" class="control-label">Número de envíos</label>
-                            <input type="text" class="form-control" id="field-4" placeholder="11">
+                            <label for="numero_envio" class="control-label">Número de envíos</label>
+                            <input type="text" class="form-control" id="numero_envio" name="numero_envio" placeholder="11">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-5" class="control-label">Estatus</label>
-                            <input type="text" class="form-control" id="field-5" placeholder="Good">
+                            <label for="estatus" class="control-label">Estatus</label>
+                            <input type="text" class="form-control" id="estatus" name="estatus" placeholder="Good">
                         </div>
                     </div>
                 </div>

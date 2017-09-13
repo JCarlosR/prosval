@@ -13,16 +13,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="field-1" class="control-label">Nombre</label>
-                            <input type="text" class="form-control" id="field-1">
+                            <label for="nombre" class="control-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-2" class="control-label">Teléfono</label>
-                            <input type="text" class="form-control" id="field-2">
+                            <label for="telefono" class="control-label">Teléfono</label>
+                            <input type="text" placeholder="" data-mask="(999)999 999 999" class="form-control" id="telefono" name="telefono">
+                            <span class="font-13 text-muted">(094)948 547 848</span>
                         </div>
                     </div>                        
 
@@ -48,16 +49,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="field-1" class="control-label">Nombre</label>
-                            <input type="text" class="form-control" id="field-1" placeholder="Tiger Nixon">
+                            <label for="nombre" class="control-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Tiger Nixon">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="field-2" class="control-label">Teléfono</label>
-                            <input type="text" class="form-control" id="field-2" placeholder="948574256">
+                            <label for="telefono" class="control-label">Teléfono</label>
+                            <input type="text" placeholder="(094)948 547 848" data-mask="(999)999 999 999" class="form-control" id="telefono" name="telefono">
+                            <span class="font-13 text-muted">(094)948 547 848</span>
                         </div>
                     </div>                        
             </div>
