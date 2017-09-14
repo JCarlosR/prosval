@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('page-title', 'Contactos marcados como spam')
+
 @section('content')
 <!-- modal Nuevo -->
 <div id="con-nuevo-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">

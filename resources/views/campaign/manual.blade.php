@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')     
+@section('page-title', 'Nueva campaña (manual)')
 
+@section('content')     
 <!-- modal Añadir -->
 <div id="añadir-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">

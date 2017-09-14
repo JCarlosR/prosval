@@ -1,10 +1,8 @@
 @extends('layouts.app')
 
+@section('page-title', 'Nueva campaña (automático)')
+
 @section('content')
-         
-<!-- ============================================================== -->
-<!-- Start right Content here -->
-<!-- ============================================================== -->
 <div class="content-page">
     <!-- Start content -->
     <div class="content">

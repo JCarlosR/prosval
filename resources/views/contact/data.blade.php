@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('page-title', 'Lista de contactos')
+
 @section('content')     
 <!-- modal Nuevo -->
 <div id="con-nuevo-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">

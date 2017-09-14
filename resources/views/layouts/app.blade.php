@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-        <meta name="author" content="Coderthemes">
 
         <!-- App Favicon -->
         <link rel="shortcut icon" href="images/favicon.ico">
@@ -49,6 +48,7 @@
         <link href="css/pages.css" rel="stylesheet" type="text/css" />
         <link href="css/menu.css" rel="stylesheet" type="text/css" />
         <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+        @yield('styles')
 
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -81,7 +81,7 @@
                             </button>
                         </li>
                         <li>
-                            <h4 class="page-title">Bienvenido</h4>
+                            <h4 class="page-title">@yield('page-title', 'PROSVAL')</h4>
                         </li>
                     </ul>
                 </div><!-- end container -->
@@ -124,7 +124,7 @@
                             <li class="text-muted menu-title">Menú</li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-view-toc"></i> <span> Campaña </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-view-toc"></i> <span>Campañas</span><span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/manual">Crear manual</a></li>
                                     <li><a href="/automatico">Crear automático</a></li>
@@ -133,15 +133,15 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-accounts-alt"></i><span> Contactos </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-accounts-alt"></i> <span>Contactos</span><span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="/datos">Datos</a></li>
-                                    <li><a href="/lista-spam">Lista SPAM</a></li>
+                                    <li><a href="/datos">Contactos</a></li>
+                                    <li><a href="/lista-spam">Lista spam</a></li>
                                 </ul>
                             </li>
 
                             <li>
-                                <a href="/inbox" class="waves-effect"><i class="zmdi zmdi-comment-text-alt"></i><span> Inbox </span></a>
+                                <a href="/inbox" class="waves-effect"><i class="zmdi zmdi-comment-text-alt"></i> <span>Inbox</span></a>
                             </li>
 
                         </ul>

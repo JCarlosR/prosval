@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')     
+@section('page-title', 'Campañas')
 
+@section('content')     
 <!-- modal Editar -->
 <div id="con-editar-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">

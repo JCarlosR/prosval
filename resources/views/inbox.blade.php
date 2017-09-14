@@ -1,6 +1,12 @@
-@extends('layouts.chat')
+@extends('layouts.app')
+
+@section('page-title', 'Inbox')
 
 @section('styles')
+    <link rel="stylesheet" type="text/css" href="/css/jobadi.css">
+@endsection
+
+@section('content')
 <div class="content-page">
   <div class="content">
    <div class="container">
@@ -9,9 +15,9 @@
             <div class="row">
                   <div id="custom-search-input">
                      <div class="input-group col-md-12">
-                        <input type="text" class="  search-query form-control" placeholder="Conversation" />
+                        <input type="text" class="search-query form-control" placeholder="Buscar contacto ..." />
                         <button class="" type="button">
-                        <span class=" glyphicon glyphicon-search"></span>
+                            <span class="glyphicon glyphicon-search"></span>
                         </button>
                      </div>
                   </div>
@@ -177,20 +183,23 @@
          </div>
          <!--chat_sidebar-->
      
-     
          <div class="col-sm-9 message_section">
            <div class="row">
            <div class="new_message_head">
-             <div class="pull-left"><button><i class="fa fa-plus-square-o" aria-hidden="true"></i> New Message</button></div><div class="pull-right">
+             <div class="pull-left">
+                 <button>
+                     <i class="fa fa-send" aria-hidden="true"></i> Jack Sparrow
+                 </button>
+             </div>
+               <div class="pull-right">
                <div class="dropdown">
                     <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-cogs" aria-hidden="true"></i>  Setting
+                      <i class="fa fa-cogs" aria-hidden="true"></i>  Opciones
                       <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Profile</a></li>
-                      <li><a href="#">Logout</a></li>
+                        <li><a href="#">Ver datos de contacto</a></li>
+                        <li><a href="#">Marcar como spam</a></li>
                     </ul>
                </div>
             </div>
