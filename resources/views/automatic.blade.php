@@ -174,6 +174,21 @@
                             <option selected>Categoria3</option>
                         </select>
                     </div>
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <input type="checkbox" checked data-plugin="switchery" data-color="#3bafda" data-size="small"/>
+                        </div>
+
+                        <h4 class="header-title m-t-0 m-b-30">Imagen</h4>
+                        <div class="form-group">
+                            <label>Opcion de imagen</label>
+                            <select class="form-control">
+                                    <option>Seleccionar</option>
+                                    <option>Solo con imagen</option>
+                                    <option>Solo sin imagen</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">       
                     <div class="card-box">
@@ -222,6 +237,73 @@
                         </select>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <input type="checkbox" checked data-plugin="switchery" data-color="#3bafda" data-size="small"/>
+                        </div>
+                        <h4 class="header-title m-t-0 m-b-30">Región, municipio, colonia</h4>
+                        <div class="sidebar-inner slimscrollleft">
+                            <ul class="tree">
+                                <li class="has">
+                                    <input type="checkbox" name="domain[]" value="region1">
+                                    <label>Ciudad de México <span class="total">(2)</span></label>
+                                    <ul>
+                                        <li class="has">
+                                        <input type="checkbox" name="subdomain[]" value="municipio1">
+                                        <label>Álvaro Obregón <span class="total">(2)</span></label>
+                                        <ul>
+                                          <li>
+                                            <input type="checkbox" name="subject[]" value="Colonia1">
+                                            <label>San Angel</label>
+                                          </li>
+                                          <li>
+                                            <input type="checkbox" name="subject[]" value="Colonia2">
+                                            <label>Los Alpes</label>
+                                          </li>
+                                        </ul>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li class="has">
+                                        <input type="checkbox" name="subdomain[]" value="Municipio1">
+                                        <label>Azcapotzalco <span class="total">(2)</span></label>
+                                        <ul>
+                                          <li>
+                                            <input type="checkbox" name="subject[]" value="Colonia1">
+                                            <label>Palestina</label>
+                                          </li>
+                                          <li>
+                                            <input type="checkbox" name="subject[]" value="Colonia2">
+                                            <label>Del Recreo</label>
+                                          </li>
+                                        </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="has">
+                                    <input type="checkbox" name="domain[]" value="region2">
+                                    <label>Estado de México <span class="total">(2)</span></label>
+                                    <ul> 
+                                        <li class="has">
+                                            <input type="checkbox" name="subdomain[]" value="municipio2">
+                                            <label>Jiquipilco <span class="total">(1)</span></label>
+                                            <ul>
+                                              <li>
+                                                <input type="checkbox" name="subject[]" value="Colonia2">
+                                                <label>Las Palomitas (Puerto Jiquipilli)</label>
+                                              </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- end col -->  
+                
+            </div>
+            <div class="row">
                 <div class="col-sm-6">
                     <div class="card-box">
                         <div class="dropdown pull-right">
@@ -320,16 +402,15 @@
                         </div><!-- end row -->
                     </div>
                 </div><!-- end col -->
+                             
             </div>
-            <div class="row">
-                <div class="col-md-12">
+                        <!-- end row -->
+            <div class="col-md-12">
                     <div class="card-box">
                         <button type="button" class="btn waves-effect waves-light btn-primary">Guardar</button>
                         <button type="button" class="btn btn-success waves-effect waves-light">Programar</button>
                     </div>
-                </div><!-- end col -->               
-            </div>
-                        <!-- end row -->
+                </div><!-- end col -->  
         </div> <!-- container -->
 
     </div> <!-- content -->
