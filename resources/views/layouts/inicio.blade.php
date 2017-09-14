@@ -37,7 +37,7 @@
         <div class="wrapper-page">
             <div class="text-center">
                 <a class="logo"><span>PROSVAL</span></a>
-                <h5 class="text-muted m-t-0 font-600">No sé su frase :'v</h5>
+                <h5 class="text-muted m-t-0 font-600">Sistema de prospección y valuación de inmuebles</h5>
             </div>
             <div class="m-t-40 card-box">
                 @yield('content')
@@ -45,9 +45,6 @@
             <!-- end card-box -->
         </div>
         <!-- end wrapper page -->
-
-
-        
 
         <script>
             var resizefunc = [];
@@ -70,6 +67,4 @@
         <script src="js/jquery.app.js"></script>
 
     </body>
-
-            
 </html>

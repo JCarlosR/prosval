@@ -89,73 +89,72 @@
         </div>
 
         <div class="left side-menu">
-                <div class="sidebar-inner slimscrollleft">
-                    <!-- User -->
-                    <div class="user-box">
-                        <div class="user-img">
-                            <img src="images/users/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
-                            <div class="user-status online"><i class="zmdi zmdi-dot-circle"></i></div>
-                        </div>
-                        <h5><a href="#">ZZZ</a></h5>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#" >
-                                    <i class="zmdi zmdi-settings"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/logout') }}"
-                                    onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                    <i class="zmdi zmdi-power"></i>
-                                </a>
-
-                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
+            <div class="sidebar-inner slimscrollleft">
+                <!-- User -->
+                <div class="user-box">
+                    <div class="user-img">
+                        <img src="images/users/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+                        <div class="user-status online"><i class="zmdi zmdi-dot-circle"></i></div>
                     </div>
-                    <!-- End User -->
+                    <h5><a href="#">{{ auth()->user()->name }}</a></h5>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#" >
+                                <i class="zmdi zmdi-settings"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/logout') }}"
+                                onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                <i class="zmdi zmdi-power"></i>
+                            </a>
 
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                        <ul>
-                            <li class="text-muted menu-title">Menú</li>
-
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-view-toc"></i> <span>Campañas</span><span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="/manual">Crear manual</a></li>
-                                    <li><a href="/automatico">Crear automático</a></li>
-                                    <li><a href="/modificar-y-consultar">Modificar y consultar</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-accounts-alt"></i> <span>Contactos</span><span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="/datos">Contactos</a></li>
-                                    <li><a href="/lista-spam">Lista spam</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="/inbox" class="waves-effect"><i class="zmdi zmdi-comment-text-alt"></i> <span>Inbox</span></a>
-                            </li>
-
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <!-- Sidebar -->
-                    <div class="clearfix"></div>
-
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
                 </div>
+                <!-- End User -->
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="text-muted menu-title">Menú</li>
+
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-view-toc"></i> <span>Campañas</span><span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="/manual">Crear manual</a></li>
+                                <li><a href="/automatico">Crear automático</a></li>
+                                <li><a href="/modificar-y-consultar">Modificar y consultar</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-accounts-alt"></i> <span>Contactos</span><span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="/datos">Contactos</a></li>
+                                <li><a href="/lista-spam">Lista spam</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/inbox" class="waves-effect"><i class="zmdi zmdi-comment-text-alt"></i> <span>Inbox</span></a>
+                        </li>
+
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- Sidebar -->
+                <div class="clearfix"></div>
+            </div>
         </div>
             <!-- Left Sidebar End -->
 
         @yield('content')
-    
+    </div>
 <script>
     var resizefunc = [];
 </script>
@@ -228,7 +227,7 @@
 <script src="plugins/raphael/raphael-min.js"></script>
 
 <!-- Dashboard init -->
-<script src="pages/jquery.dashboard.js"></script>
+{{--<script src="pages/jquery.dashboard.js"></script>--}}
 
 <!-- App js -->
 <script src="js/jquery.core.js"></script>

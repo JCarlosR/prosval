@@ -58,7 +58,6 @@
         });
     },
     
-    
     Dashboard1.prototype.init = function() {
 
         //creating bar chart
