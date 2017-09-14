@@ -68,9 +68,7 @@
     </div>
 </div><!-- /.modal -->
 
-<!-- ============================================================== -->
 <!-- Start right Content here -->
-<!-- ============================================================== -->
 <div class="content-page">
     <!-- Start content -->
     <div class="content">
@@ -80,7 +78,6 @@
                 <div class="col-sm-12">
                     <div class="card-box table-responsive">
                         <div class="dropdown pull-right">
-                             
                         </div>
 
                         <h4 class="header-title m-t-0 m-b-30">Pantalla resumen</h4>
@@ -142,8 +139,5 @@
     </footer>
 
 </div>
-<!-- ============================================================== -->
 <!-- End Right content here -->
-<!-- ============================================================== -->
-
 @endsection

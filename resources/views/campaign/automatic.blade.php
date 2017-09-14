@@ -51,7 +51,7 @@
                                         <label>Repetir</label>
                                         <select class="form-control">
                                                 <option>Seleccionar</option>
-                                                <option>Si</option>
+                                                <option>Sí</option>
                                                 <option>No</option>
                                             </select>
                                     </div>
@@ -106,7 +106,7 @@
                                             <label>Enviar sin nombre</label>
                                             <select class="form-control">
                                                 <option>Seleccionar</option>
-                                                <option>Si</option>
+                                                <option>Sí</option>
                                                 <option>No</option>
                                             </select>
                                         </div>
@@ -114,7 +114,7 @@
                                             <label>Enviar teléfono duplicado</label>
                                             <select class="form-control">
                                                 <option>Seleccionar</option>
-                                                <option>Si</option>
+                                                <option>Sí</option>
                                                 <option>No</option>
                                             </select>
                                         </div>
@@ -179,7 +179,7 @@
 
                         <h4 class="header-title m-t-0 m-b-30">Imagen</h4>
                         <div class="form-group">
-                            <label>Opcion de imagen</label>
+                            <label>Seleccione una opción</label>
                             <select class="form-control">
                                     <option>Seleccionar</option>
                                     <option>Solo con imagen</option>
@@ -199,9 +199,9 @@
                             Excluir palabras
                         </p>
                         <select multiple data-role="tagsinput" placeholder="agregar etiquetas">
-                            <option value="Amsterdam">aviso</option>
-                            <option value="Washington">tipo</option>
-                            <option value="Sydney">titulo</option>
+                            <option value="Amsterdam"></option>
+                            <option value="Washington"></option>
+                            <option value="Sydney"></option>
                         </select>
                     </div>
                     <div class="card-box">
@@ -214,9 +214,9 @@
                             Excluir palabras
                         </p>
                         <select multiple data-role="tagsinput" placeholder="agregar etiquetas">
-                            <option value="nose">nose</option>
-                            <option value="Go lan">Go lan</option>
-                            <option value="suyon of shit">suyon of shit</option>
+                            <option value="Amsterdam"></option>
+                            <option value="Washington"></option>
+                            <option value="Sydney"></option>
                         </select>
                     </div>
                     <div class="card-box">
@@ -229,9 +229,9 @@
                             Excluir palabras
                         </p>
                         <select multiple data-role="tagsinput" placeholder="agregar etiquetas">
-                            <option value="Amsterdam">Vendedor1</option>
-                            <option value="Washington">Vendedor2</option>
-                            <option value="Sydney">vendedor3</option>
+                            <option value="Vendedor1">Vendedor1</option>
+                            <option value="Vendedor2">Vendedor2</option>
+                            <option value="Vendedor3">Vendedor3</option>
                         </select>
                     </div>
                 </div>
