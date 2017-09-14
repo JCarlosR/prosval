@@ -93,10 +93,10 @@
                     <!-- User -->
                     <div class="user-box">
                         <div class="user-img">
-                            <img src="images/users/avatar-3.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+                            <img src="images/users/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
                             <div class="user-status online"><i class="zmdi zmdi-dot-circle"></i></div>
                         </div>
-                        <h5><a href="#">Suyon of shit</a> </h5>
+                        <h5><a href="#">ZZZ</a></h5>
                         <ul class="list-inline">
                             <li>
                                 <a href="#" >
@@ -128,7 +128,7 @@
                                 <ul class="list-unstyled">
                                     <li><a href="/manual">Crear manual</a></li>
                                     <li><a href="/automatico">Crear automático</a></li>
-                                    <li><a href="/modificar-y-consultar">Modificar y Consultar</a></li>
+                                    <li><a href="/modificar-y-consultar">Modificar y consultar</a></li>
                                 </ul>
                             </li>
 
