@@ -22,7 +22,8 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="telefono" class="control-label">Teléfono</label>
-                                <input type="text" placeholder="559 999 999" data-mask="559 999 999" class="form-control" id="telefono" name="phone">
+                                <input type="text" placeholder="559 999 9999" data-mask="559 999 9999" class="form-control" id="telefono" name="phone">
+                                <span class="font-13 text-muted">Ejemplo: 558 547 8484</span>
                             </div>
                         </div>
                         <div class="col-md-8">
