@@ -6,6 +6,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/import', 'TestController@import');
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Contacts

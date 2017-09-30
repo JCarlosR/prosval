@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Start right Content here -->
     <div class="content-page">
-
         <div class="content">
             <div class="container">
 
@@ -18,13 +16,10 @@
                     </div>
                 </div>
 
-
-            </div> <!-- container -->
-        </div> <!-- content -->
-
+            </div><!-- container -->
+        </div><!-- content -->
         <footer class="footer">
             2017 © PROSVAL.
         </footer>
     </div>
-    <!-- End Right content here -->
 @endsection
