@@ -541,5 +541,7 @@ $(document).on('click', 'button', function(e) {
   }
 });
 </script>
+
+    @yield('scripts')
 </body>
 </html>

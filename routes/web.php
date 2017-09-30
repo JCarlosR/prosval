@@ -13,6 +13,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/datos', 'ContactController@data');
 Route::get('/lista-spam', 'ContactController@spam');
 
+Route::post('/contact', 'ContactController@store');
+Route::put('/contact', 'ContactController@update');
+Route::put('/contact/spam', 'ContactController@updateSpam');
+
+Route::get('/contact/{contact}/spam', 'ContactController@markAsSpam');
+Route::get('/contact/{contact}/recover', 'ContactController@markAsActive');
+
 // Campaigns
 Route::get('/manual', 'CampaignController@manual');
 Route::get('/automatico', 'CampaignController@automatic');
