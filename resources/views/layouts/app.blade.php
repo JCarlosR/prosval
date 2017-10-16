@@ -3,51 +3,43 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
 
-        <!-- App Favicon -->
-        <link rel="shortcut icon" href="images/favicon.ico">
-
-        <!-- form Uploads -->
-        <link href="plugins/fileuploads/css/dropify.min.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+        <link href="{{ asset('plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet">
         
-        <!-- App title -->
         <title>Prosval</title>
 
-        <!-- Editatable  Css-->
-        <link rel="stylesheet" href="plugins/magnific-popup/dist/magnific-popup.css" />
-        <link rel="stylesheet" href="plugins/jquery-datatables-editable/datatables.css" />
+        <link rel="stylesheet" href="{{ asset('plugins/magnific-popup/dist/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/jquery-datatables-editable/datatables.css') }}">
 
-        <!--Morris Chart CSS -->
-        <link rel="stylesheet" href="plugins/morris/morris.css">
+        <link rel="stylesheet" href="{{ asset('plugins/morris/morris.css') }}">
 
-        <!-- DataTables -->
-        <link href="plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-        <link href="plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('plugins/datatables/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('plugins/datatables/buttons.bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('plugins/datatables/fixedHeader.bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('plugins/datatables/responsive.bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('plugins/datatables/scroller.bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
          <!-- Plugins css-->
-        <link href="plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
-        <link href="plugins/multiselect/css/multi-select.css"  rel="stylesheet" type="text/css" />
-        <link href="plugins/select2/dist/css/select2.css" rel="stylesheet" type="text/css">
-        <link href="plugins/select2/dist/css/select2-bootstrap.css" rel="stylesheet" type="text/css">
-        <link href="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
-        <link href="plugins/switchery/switchery.min.css" rel="stylesheet" />
-        <link href="plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
-        <link href="plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
-        <link href="plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
-        <link href="plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+        <link href="{{ asset('plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/multiselect/css/multi-select.css') }}"  rel="stylesheet">
+        <link href="{{ asset('plugins/select2/dist/css/select2.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/select2/dist/css/select2-bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/switchery/switchery.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('plugins/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 
         <!-- App css -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/core.css" rel="stylesheet" type="text/css" />
-        <link href="css/components.css" rel="stylesheet" type="text/css" />
-        <link href="css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="css/pages.css" rel="stylesheet" type="text/css" />
-        <link href="css/menu.css" rel="stylesheet" type="text/css" />
-        <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/core.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/components.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/icons.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/pages.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/menu.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css">
         @yield('styles')
 
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -57,8 +49,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-        <script src="js/modernizr.min.js"></script>
-
+        <script src="{{ asset('js/modernizr.min.js') }}"></script>
     </head>
 
 <body class="fixed-left">
@@ -93,7 +84,7 @@
                 <!-- User -->
                 <div class="user-box">
                     <div class="user-img">
-                        <img src="images/users/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+                        <img src="{{ asset('images/users/avatar-1.jpg') }}" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
                         <div class="user-status online"><i class="zmdi zmdi-dot-circle"></i></div>
                     </div>
                     <h5><a href="#">{{ auth()->user()->name }}</a></h5>
@@ -126,9 +117,9 @@
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-view-toc"></i> <span>Campañas</span><span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="/manual">Crear manual</a></li>
-                                <li><a href="/automatico">Crear automático</a></li>
-                                <li><a href="/modificar-y-consultar">Modificar y consultar</a></li>
+                                <li><a href="/campaigns/create/manual">Crear manual</a></li>
+                                <li><a href="/campaigns/create/automatic">Crear automático</a></li>
+                                <li><a href="/campaigns">Modificar y consultar</a></li>
                             </ul>
                         </li>
 
@@ -160,92 +151,78 @@
 </script>
             
 <!-- jQuery  -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/detect.js"></script>
-<script src="js/fastclick.js"></script>
-<script src="js/jquery.slimscroll.js"></script>
-<script src="js/jquery.blockUI.js"></script>
-<script src="js/waves.js"></script>
-<script src="js/jquery.nicescroll.js"></script>
-<script src="js/jquery.scrollTo.min.js"></script>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/detect.js') }}"></script>
+<script src="{{ asset('js/fastclick.js') }}"></script>
+<script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
+<script src="{{ asset('js/jquery.blockUI.js') }}"></script>
+<script src="{{ asset('js/waves.js') }}"></script>
+<script src="{{ asset('js/jquery.nicescroll.js') }}"></script>
+<script src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
 
 <!-- Plugins Js -->
-<script src="plugins/switchery/switchery.min.js"></script>
-<script src="plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
-<script type="text/javascript" src="plugins/multiselect/js/jquery.multi-select.js"></script>
-<script type="text/javascript" src="plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
-<script src="plugins/select2/dist/js/select2.min.js" type="text/javascript"></script>
-<script src="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
-<script src="plugins/bootstrap-inputmask/bootstrap-inputmask.min.js" type="text/javascript"></script>
-<script src="plugins/moment/moment.js"></script>
-<script src="plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<script src="plugins/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
-<script src="plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<script src="plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script src="plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script src="{{ asset('plugins/switchery/switchery.min.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
+<script src="{{ asset('plugins/multiselect/js/jquery.multi-select.js') }}"></script>
+<script src="{{ asset('plugins/jquery-quicksearch/jquery.quicksearch.js') }}"></script>
+<script src="{{ asset('plugins/select2/dist/js/select2.min.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap-inputmask/bootstrap-inputmask.min.js') }}"></script>
+<script src="{{ asset('plugins/moment/moment.js') }}"></script>
+<script src="{{ asset('plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
+<script src="{{ asset('plugins/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
 
 <!-- Datatables-->
-<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="plugins/datatables/dataTables.bootstrap.js"></script>
-<script src="plugins/datatables/dataTables.buttons.min.js"></script>
-<script src="plugins/datatables/buttons.bootstrap.min.js"></script>
-<script src="plugins/datatables/jszip.min.js"></script>
-<script src="plugins/datatables/pdfmake.min.js"></script>
-<script src="plugins/datatables/vfs_fonts.js"></script>
-<script src="plugins/datatables/buttons.html5.min.js"></script>
-<script src="plugins/datatables/buttons.print.min.js"></script>
-<script src="plugins/datatables/dataTables.fixedHeader.min.js"></script>
-<script src="plugins/datatables/dataTables.keyTable.min.js"></script>
-<script src="plugins/datatables/dataTables.responsive.min.js"></script>
-<script src="plugins/datatables/responsive.bootstrap.min.js"></script>
-<script src="plugins/datatables/dataTables.scroller.min.js"></script>
+<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/dataTables.bootstrap.js') }}"></script>
+<script src="{{ asset('plugins/datatables/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/buttons.bootstrap.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/jszip.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/pdfmake.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/vfs_fonts.js') }}"></script>
+<script src="{{ asset('plugins/datatables/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/buttons.print.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/dataTables.fixedHeader.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/dataTables.keyTable.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/responsive.bootstrap.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables/dataTables.scroller.min.js') }}"></script>
 
 <!-- file uploads js -->
-<script src="plugins/fileuploads/js/dropify.min.js"></script>
+<script src="{{ asset('plugins/fileuploads/js/dropify.min.js') }}"></script>
 
 <!-- Datatable init js -->
-<script src="pages/datatables.init.js"></script>
+<script src="{{ asset('pages/datatables.init.js') }}"></script>
 
 <!-- Editable js -->
-<script src="plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-<script src="plugins/jquery-datatables-editable/jquery.dataTables.js"></script>
-<script src="plugins/datatables/dataTables.bootstrap.js"></script>
-<script src="plugins/tiny-editable/mindmup-editabletable.js"></script>
-<script src="plugins/tiny-editable/numeric-input-example.js"></script>
+<script src="{{ asset('plugins/magnific-popup/dist/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('plugins/jquery-datatables-editable/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('plugins/datatables/dataTables.bootstrap.js') }}"></script>
+<script src="{{ asset('plugins/tiny-editable/mindmup-editabletable.js') }}"></script>
+<script src="{{ asset('plugins/tiny-editable/numeric-input-example.js') }}"></script>
 <!-- init -->
-<script src="pages/datatables.editable.init.js"></script>
+<script src="{{ asset('pages/datatables.editable.init.js') }}"></script>
 
 <!-- KNOB JS -->
 <!--[if IE]>
-<script type="text/javascript" src="plugins/jquery-knob/excanvas.js"></script>
+<script src="{{ asset('plugins/jquery-knob/excanvas.js') }}"></script>
 <![endif]-->
-<script src="plugins/jquery-knob/jquery.knob.js"></script>
+<script src="{{ asset('plugins/jquery-knob/jquery.knob.js') }}"></script>
 
 <!--Morris Chart-->
-<script src="plugins/morris/morris.min.js"></script>
-<script src="plugins/raphael/raphael-min.js"></script>
+<script src="{{ asset('plugins/morris/morris.min.js') }}"></script>
+<script src="{{ asset('plugins/raphael/raphael-min.js') }}"></script>
 
 <!-- Dashboard init -->
 {{--<script src="pages/jquery.dashboard.js"></script>--}}
 
 <!-- App js -->
-<script src="js/jquery.core.js"></script>
-<script src="js/jquery.app.js"></script>
-
-<script type="text/javascript">
-    $('.dropify').dropify({
-        messages: {
-            'default': 'Arrastrar y soltar un archivo o haga clic aquí',
-            'replace': 'Arrastre y suelte o haga clic para reemplazar',
-            'remove': 'Eliminar',
-            'error': 'Ooops, algo mal adjunto.'
-        },
-        error: {
-            'fileSize': 'El tamaño del archivo es demasiado grande (máx. 2M).'
-        }
-    });
-</script>
+<script src="{{ asset('js/jquery.core.js') }}"></script>
+<script src="{{ asset('js/jquery.app.js') }}"></script>
 
 <script>
     $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
@@ -375,9 +352,6 @@
     jQuery('#timepicker').timepicker({
         defaultTIme : false
     });
-    jQuery('#timepicker2').timepicker({
-        showMeridian : false
-    });
     jQuery('#timepicker3').timepicker({
         minuteStep : 15
     });
@@ -390,7 +364,6 @@
     $('.colorpicker-rgba').colorpicker();
 
     // Date Picker
-    jQuery('#datepicker').datepicker();
     jQuery('#datepicker-autoclose').datepicker({
         autoclose: true,
         todayHighlight: true
@@ -500,10 +473,6 @@
         preText: 'You typed ',
         postText: ' chars available.',
         validate: true
-    });
-
-    $('textarea#textarea').maxlength({
-        alwaysShow: true
     });
 
     $('input#placement').maxlength({

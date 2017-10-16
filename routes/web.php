@@ -21,9 +21,17 @@ Route::get('/contact/{contact}/spam', 'ContactController@markAsSpam');
 Route::get('/contact/{contact}/recover', 'ContactController@markAsActive');
 
 // Campaigns
-Route::get('/manual', 'CampaignController@manual');
-Route::get('/automatico', 'CampaignController@automatic');
-Route::get('/modificar-y-consultar', 'CampaignController@index');
+Route::get('/campaigns', 'CampaignController@index');
+Route::get('/campaigns/create/manual', 'CampaignController@manual');
+Route::post('/campaigns', 'CampaignController@store');
+Route::get('/campaigns/edit/{campaign}', 'CampaignController@edit');
+Route::put('/campaigns/edit/{campaign}', 'CampaignController@schedule');
+// Details
+Route::post('/campaigns/{campaign}/details', 'CampaignDetailController@store');
+Route::get('/campaigns/details/{detail}/delete', 'CampaignDetailController@destroy');
+Route::get('/campaigns/{campaign}/details', 'CampaignDetailController@index');
+
+Route::get('/campaigns/create/automatic', 'CampaignController@automatic');
 Route::get('/detalle', 'CampaignDetailController@index');
 
 Route::get('/inbox', 'InboxController@index');

@@ -12,48 +12,46 @@
                     <div class="col-sm-12">
                         <div class="card-box table-responsive">
                             <div class="dropdown pull-right">
-                                <a href="/modificar-y-consultar"
+                                <a href="/campaigns"
                                    class="btn btn-primary waves-effect waves-light btn-info m-b-5"
                                    role="button">Volver</a>
                             </div>
 
-                            <h4 class="header-title m-t-0 m-b-30">Detalles de la campaña "ABC"</h4>
+                            <h4 class="header-title m-t-0 m-b-30">Detalles de la campaña "{{ $campaign->name }}"</h4>
 
                             <table id="datatable" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>Vendedor</th>
+                                    <th>Fecha de envío</th>
+                                    <th>Hora de envío</th>
+                                    <th>Nombre</th>
                                     <th>Teléfono</th>
+                                    <th>Propiedad</th>
                                     <th>Mensaje</th>
-                                    <th>Tipo</th>
-                                    <th>Colonia</th>
                                     <th>Link</th>
                                     <th>Estatus</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>948574256</td>
-                                    <td>prosval@gmail.com</td>
-                                    <td>Tipo 1</td>
-                                    <td>Colonia 1</td>
-                                    <td>Link 1</td>
-                                    <td>Estatus</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Tiger Nixon1</td>
-                                    <td>948574246</td>
-                                    <td>prosval1@gmail.com</td>
-                                    <td>Tipo 2</td>
-                                    <td>Colonia 2</td>
-                                    <td>Link 2</td>
-                                    <td>Estatus1</td>
-                                    </td>
-                                </tr>
-
+                                @foreach ($campaign->details as $detail)
+                                    <tr>
+                                        <td>{{ $detail->schedule_date }}</td>
+                                        <td>{{ substr($detail->schedule_time, 0, 5) }}</td>
+                                        <td>{{ $detail->name }}</td>
+                                        <td>{{ $detail->phone }}</td>
+                                        <td>{{ $detail->property ?: '-' }}</td>
+                                        <td>{{ $detail->message }}</td>
+                                        <td>
+                                            @if ($detail->link)
+                                                <a href="{{ $detail->link }}" target="_blank">Ver enlace</a>
+                                            @else
+                                                Sin enlace
+                                            @endif
+                                        </td>
+                                        <td>{{ $detail->status }}</td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
