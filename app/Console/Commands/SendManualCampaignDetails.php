@@ -62,6 +62,13 @@ class SendManualCampaignDetails extends Command
         curl_close($ch);
 
         $response = json_decode($response);
-        var_dump($response);
+
+        if ($response['estatus'] == 'ok') {
+            $detail->status = 'Enviado';
+        } else {
+            $errorCode = $response['mensaje'];
+            $detail->status = "Error ($errorCode)";
+        }
+        $detail->save();
     }
 }
