@@ -24,7 +24,7 @@ class SendManualCampaignDetails extends Command
         $campaigns = Campaign::where('status', 'Programado')->get();
         foreach ($campaigns as $campaign) {
             $details = $campaign->details()->where('status', 'Pendiente')->get();
-            dd($details);
+            // dd($details);
             foreach ($details as $detail) {
                 $schedule_date_time = new Carbon($detail->schedule_date. ' ' . $detail->schedule_time);
                 // dd($schedule_date_time);
@@ -34,8 +34,12 @@ class SendManualCampaignDetails extends Command
                    $this->sendSmsAndMarkAsDelivered($detail);
                 }
             }
-        }
 
+            if (! $campaign->details()->where('status', 'Pendiente')->exists()) {
+                $campaign->status = 'Finalizado';
+                $campaigns->save();
+            }
+        }
     }
 
     public function sendSmsAndMarkAsDelivered(CampaignDetail $detail)
