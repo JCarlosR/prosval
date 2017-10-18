@@ -68,11 +68,11 @@ class SendManualCampaignDetails extends Command
         $response = json_decode($response);
 
         $now = Carbon::now();
-        if ($response['estatus'] == 'ok') {
+        if ($response->estatus == 'ok') {
             $detail->status = 'Enviado';
             $this->info("Se envió satisfactoriamente un SMS a $phone a las $now");
         } else {
-            $errorCode = $response['mensaje'];
+            $errorCode = $response->mensaje;
             $detail->status = "Error ($errorCode)";
             $this->info("No se pudo enviar un SMS a $phone a las $now ($errorCode)");
         }
