@@ -2,8 +2,12 @@
 
 @section('page-title', 'Nueva campaña (manual)')
 
+@section('styles')
+    <link href="{{ asset('plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')     
-<!-- modal Añadir -->
+{{-- modal add detail--}}
 <div id="añadir-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -64,7 +68,7 @@
     </div>
 </div><!-- /.modal -->
 
-<!-- modal cargar -->
+{{-- modal upload csv --}}
 <div id="cargar-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -72,13 +76,16 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h4 class="modal-title">Cargar destinatario desde Excel</h4>
             </div>
-            <div class="modal-body">
-                <input type="file" class="dropify" data-max-file-size="2M" />
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-info waves-effect waves-light">Cargar</button>
-            </div>
+            <form action="{{ url('/campaigns/'.$campaign->id.'/upload') }}" enctype="multipart/form-data" method="post">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <input type="file" class="dropify" data-max-file-size="5M" name="csv" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-info waves-effect waves-light">Cargar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div><!-- /.modal -->
@@ -87,9 +94,23 @@
     <!-- Start content -->
     <div class="content">
         <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-               <div class="card-box">
+
+            <div class="card-box">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if (session('notification'))
+                    <div class="alert alert-success">
+                        {{ session('notification') }}
+                    </div>
+                @endif
+
                 <div class="form-group">
                     <label for="campaign_name">Nombre campaña</label>
                     <input type="text" placeholder="Escribir nombre de campaña" value="{{ $campaign->name }}" class="form-control" id="campaign_name" disabled>
@@ -100,56 +121,51 @@
                         Cargar destinatarios desde Excel
                     </button>
                 </div>
-               </div> 
             </div>
-            
-        </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card-box table-responsive">
-                        <table id="datatable" class="table table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Fecha de envío</th>
-                                    <th>Hora de envío</th>
-                                    <th>Nombre</th>
-                                    <th>Teléfono</th>
-                                    <th>Propiedad</th>
-                                    <th>Link</th>
-                                    <th>Opciones</th>
-                                </tr>
-                            </thead>
 
-                            <tbody>
-                            @foreach ($campaign->details as $detail)
-                                <tr>
-                                    <td>{{ $detail->schedule_date }}</td>
-                                    <td>{{ substr($detail->schedule_time, 0, 5) }}</td>
-                                    <td>{{ $detail->name }}</td>
-                                    <td>{{ $detail->phone }}</td>
-                                    <td>{{ $detail->property ?: '-' }}</td>
-                                    <td>
-                                        @if ($detail->link)
-                                            <a href="{{ $detail->link }}" target="_blank">Ver enlace</a>
-                                        @else
-                                            Sin enlace
-                                        @endif
-                                    </td>
-                                    <td>
-                                        {{--<a href="" class="btn btn-info">--}}
-                                            {{--<span class="fa fa-edit"></span>--}}
-                                        {{--</a>--}}
-                                        <a href="{{ url('/campaigns/details/'.$detail->id.'/delete') }}" class="btn btn-danger">
-                                            <span class="fa fa-remove"></span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div><!-- end col -->
+            <div class="card-box table-responsive">
+                <table id="datatable" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Fecha de envío</th>
+                        <th>Hora de envío</th>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Propiedad</th>
+                        <th>Link</th>
+                        <th>Opciones</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    @foreach ($campaign->details as $detail)
+                        <tr>
+                            <td>{{ $detail->schedule_date }}</td>
+                            <td>{{ substr($detail->schedule_time, 0, 5) }}</td>
+                            <td>{{ $detail->name }}</td>
+                            <td>{{ $detail->phone }}</td>
+                            <td>{{ $detail->property ?: '-' }}</td>
+                            <td>
+                                @if ($detail->link)
+                                    <a href="{{ $detail->link }}" target="_blank">Ver enlace</a>
+                                @else
+                                    Sin enlace
+                                @endif
+                            </td>
+                            <td>
+                                {{--<a href="" class="btn btn-info">--}}
+                                {{--<span class="fa fa-edit"></span>--}}
+                                {{--</a>--}}
+                                <a href="{{ url('/campaigns/details/'.$detail->id.'/delete') }}" class="btn btn-danger">
+                                    <span class="fa fa-remove"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
+
 
 
             <div class="card-box">
@@ -176,7 +192,8 @@
 
 
 @section('scripts')
-    <script type="text/javascript">
+    <script src="{{ asset('plugins/fileuploads/js/dropify.min.js') }}"></script>
+    <script>
         $('#schedule_date').datepicker({
             autoclose: true,
             todayHighlight: true,
@@ -191,13 +208,13 @@
 
         $('.dropify').dropify({
             messages: {
-                'default': 'Arrastrar y soltar un archivo o haga clic aquí',
-                'replace': 'Arrastre y suelte o haga clic para reemplazar',
+                'default': 'Arrastra y suelta un archivo o haz clic aquí',
+                'replace': 'Arrastra y suelta o haz clic para reemplazar',
                 'remove': 'Eliminar',
-                'error': 'Ooops, algo mal adjunto.'
+                'error': 'Ooops, el archivo adjunto no es válido'
             },
             error: {
-                'fileSize': 'El tamaño del archivo es demasiado grande (máx. 2M).'
+                'fileSize': 'El tamaño del archivo es demasiado grande (máx. @{{ value }})'
             }
         });
     </script>

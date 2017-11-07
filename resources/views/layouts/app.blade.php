@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
-        <link href="{{ asset('plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet">
-        
         <title>Prosval</title>
 
         <link rel="stylesheet" href="{{ asset('plugins/magnific-popup/dist/magnific-popup.css') }}">
@@ -191,10 +189,6 @@
 <script src="{{ asset('plugins/datatables/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables/responsive.bootstrap.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables/dataTables.scroller.min.js') }}"></script>
-
-<!-- file uploads js -->
-<script src="{{ asset('plugins/fileuploads/js/dropify.min.js') }}"></script>
-
 <!-- Datatable init js -->
 <script src="{{ asset('pages/datatables.init.js') }}"></script>
 
@@ -228,7 +222,7 @@
     $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
 </script>
 
-<script type="text/javascript">
+<script>
     $(document).ready(function() {
         $('#datatable').dataTable();
         $('#datatable-keytable').DataTable( { keys: true } );
