@@ -47,10 +47,16 @@ class CampaignController extends Controller
         return view('campaign.index')->with(compact('campaigns'));
     }
 
-    public function schedule(Campaign $campaign)
+    public function status(Campaign $campaign, Request $request)
     {
-        $campaign->status = 'Programado';
-        $campaign->save();
+        if ($request->has('status')) {
+            $campaign->status = $request->input('status');
+            $saved = $campaign->save();
+
+            if ($saved)
+                $notification = 'Se ha modificado el estado de la campaña '.$campaign->name.' a '.$campaign->status.'.';
+            return redirect('/campaigns')->with(compact('notification'));
+        }
 
         return redirect('/campaigns');
     }

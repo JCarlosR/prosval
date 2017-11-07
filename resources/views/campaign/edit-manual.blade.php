@@ -4,6 +4,11 @@
 
 @section('styles')
     <link href="{{ asset('plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet">
+    <style>
+        .table > tbody > tr > th {
+            vertical-align: middle;
+        }
+    </style>
 @endsection
 
 @section('content')     
@@ -91,7 +96,6 @@
 </div><!-- /.modal -->
 
 <div class="content-page">
-    <!-- Start content -->
     <div class="content">
         <div class="container">
 
@@ -133,6 +137,7 @@
                         <th>Teléfono</th>
                         <th>Propiedad</th>
                         <th>Link</th>
+                        <th>Mensaje</th>
                         <th>Opciones</th>
                     </tr>
                     </thead>
@@ -147,16 +152,19 @@
                             <td>{{ $detail->property ?: '-' }}</td>
                             <td>
                                 @if ($detail->link)
-                                    <a href="{{ $detail->link }}" target="_blank">Ver enlace</a>
+                                    <a href="{{ $detail->link }}" target="_blank" class="btn btn-info btn-sm">
+                                        <i class="fa fa-link"></i>
+                                    </a>
                                 @else
                                     Sin enlace
                                 @endif
                             </td>
+                            <td>{{ $detail->message }}</td>
                             <td>
                                 {{--<a href="" class="btn btn-info">--}}
                                 {{--<span class="fa fa-edit"></span>--}}
                                 {{--</a>--}}
-                                <a href="{{ url('/campaigns/details/'.$detail->id.'/delete') }}" class="btn btn-danger">
+                                <a href="{{ url('/campaigns/details/'.$detail->id.'/delete') }}" class="btn btn-danger btn-sm">
                                     <span class="fa fa-remove"></span>
                                 </a>
                             </td>
@@ -166,19 +174,31 @@
                 </table>
             </div>
 
-
-
             <div class="card-box">
-                <form action="" method="post">
+                <p><strong>Estado actual de la campaña:</strong> {{ $campaign->status }}</p>
+
+                <form action="{{ url('/campaigns/edit/'.$campaign->id.'/status') }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
-                    <button type="submit" class="btn waves-effect waves-light btn-primary">
-                        Programar envío
-                        <span class="fa fa-save m-l-5"></span>
-                    </button>
+                    <a href="{{ url('campaigns') }}" class="btn waves-effect waves-light btn-default">
+                        <i class="fa fa-backward"></i>
+                        Volver al listado de campañas
+                    </a>
+                    @if ($campaign->status == 'Pendiente')
+                        <button type="submit" class="btn waves-effect waves-light btn-primary" name="status" value="Programado"
+                                data-toggle="tooltip" data-placement="top" title="Programar envío">
+                            Activar campaña
+                            <span class="fa fa-send m-l-5"></span>
+                        </button>
+                    @elseif ($campaign->status == 'Programado')
+                        <button type="submit" class="btn waves-effect waves-light btn-danger" name="status" value="Pendiente"
+                                data-toggle="tooltip" data-placement="top" title="Volver al estado pendiente">
+                            Detener campaña
+                            <span class="fa fa-stop m-l-5"></span>
+                        </button>
+                    @endif
                 </form>
             </div>
-
 
         </div> <!-- container -->
     </div> <!-- content -->
@@ -186,7 +206,6 @@
     <footer class="footer">
         2017 © PROSVAL.
     </footer>
-
 </div>
 @endsection
 

@@ -13,6 +13,13 @@
 
                 <h4 class="header-title m-t-0 m-b-30">Pantalla resumen</h4>
 
+                @if (session('notification'))
+                    <div class="alert alert-info alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        {{ session('notification') }}
+                    </div>
+                @endif
+
                 <table id="datatable" class="table table-striped table-bordered">
                     <thead>
                         <tr>
