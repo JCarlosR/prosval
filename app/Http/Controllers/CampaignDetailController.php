@@ -41,4 +41,20 @@ class CampaignDetailController extends Controller
         $detail->delete();
         return back();
     }
+
+    public function update(Request $request)
+    {
+        $detail = CampaignDetail::find($request->input('detail_id'));
+        $detail->schedule_date = $request->schedule_date;
+        $detail->schedule_time = $request->schedule_time;
+        $detail->name = $request->name;
+        $detail->phone = $request->phone;
+        $detail->property = $request->property;
+        $detail->message = $request->message;
+        $detail->link = $request->link;
+        $detail->status = 'Pendiente';
+        $detail->save();
+
+        return back();
+    }
 }

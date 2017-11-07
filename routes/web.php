@@ -30,6 +30,7 @@ Route::post('/campaigns/{campaign}/upload', 'CampaignController@upload');
 // Details
 Route::post('/campaigns/{campaign}/details', 'CampaignDetailController@store');
 Route::get('/campaigns/details/{detail}/delete', 'CampaignDetailController@destroy');
+Route::put('/campaigns/details', 'CampaignDetailController@update');
 Route::get('/campaigns/{campaign}/details', 'CampaignDetailController@index');
 
 Route::get('/campaigns/create/automatic', 'CampaignController@automatic');
