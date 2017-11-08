@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Campaign;
 use App\CampaignDetail;
+use App\Contact;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
@@ -76,6 +77,20 @@ class SendManualCampaignDetails extends Command
             $detail->status = "Error ($errorCode)";
             $this->info("No se pudo enviar un SMS a $phone a las $now ($errorCode)");
         }
-        $detail->save();
+        $saved = $detail->save();
+
+        if ($saved) {
+            // register new contact (if still not exists)
+            if (Contact::where('phone', $detail->phone)->exists() == false) {
+                $contact = new Contact();
+                $contact->name = $detail->name;
+                $contact->phone = $detail->phone;
+                $contact->email = null;
+                $contact->type = 'Generado luego de envío';
+                $contact->link = $detail->link;
+                $contact->colony_id = null;
+                $contact->save();
+            }
+        }
     }
 }

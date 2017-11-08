@@ -51,10 +51,10 @@
                                     <td data-link>{{ $contact->link }}</td>
                                     <td>Activo</td>
                                     <td>
-                                        <button class="btn btn-icon waves-effect waves-light btn-success m-b-5" data-edit="{{ $contact->id }}" title="Editar contacto">
+                                        <button class="btn btn-sm waves-effect waves-light btn-success m-b-5" data-edit="{{ $contact->id }}" title="Editar contacto">
                                             <i class="fa fa-edit"></i>
                                         </button>
-                                        <a href="{{ url('/contact/'.$contact->id.'/spam') }}" class="btn btn-icon waves-effect waves-light btn-danger m-b-5" title="Marcar como spam">
+                                        <a href="{{ url('/contact/'.$contact->id.'/spam') }}" class="btn btn-sm waves-effect waves-light btn-danger m-b-5" title="Marcar como spam">
                                             <i class="fa fa-remove"></i>
                                         </a>
                                     </td>
