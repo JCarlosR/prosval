@@ -38,7 +38,7 @@ class SendManualCampaignDetails extends Command
 
             if (! $campaign->details()->where('status', 'Pendiente')->exists()) {
                 $campaign->status = 'Finalizado';
-                $campaigns->save();
+                $campaign->save();
             }
         }
     }
