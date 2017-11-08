@@ -25,7 +25,7 @@ class WebHookController extends Controller
             $message->destination = $request->input('destinatario');
             $message->message = $request->input('mensaje');
             $message->response = $request->input('respuesta');
-            $message->send_date = $request->input('fechaenvio');
+            $message->sent_date = $request->input('fechaenvio');
             $message->received_date = $request->input('fecharespuesta');
         }
         $message->save();
