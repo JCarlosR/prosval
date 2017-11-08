@@ -11,7 +11,7 @@ class WebHookController extends Controller
 {
     public function webHook(Request $request)
     {
-        // Log::info($request->all());
+        Log::info($request->all());
         $message = new InboxMessage();
         if ($request->has('referencia')) {
             $message->reference_id = $request->input('referencia');
