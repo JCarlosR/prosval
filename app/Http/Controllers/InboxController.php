@@ -20,5 +20,6 @@ class InboxController extends Controller
     public function webHook(Request $request)
     {
         Log::info($request->all());
+        return "OK";
     }
 }
