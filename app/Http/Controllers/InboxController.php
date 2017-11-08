@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class InboxController extends Controller
 {
@@ -16,4 +17,8 @@ class InboxController extends Controller
         return view('inbox');
     }
 
+    public function webHook(Request $request)
+    {
+        Log::info($request->all());
+    }
 }
