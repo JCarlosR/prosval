@@ -47,6 +47,8 @@ class SendManualCampaignDetails extends Command
     {
         $message = $detail->message;
         $message  = str_replace(" ", "%20", $message);
+        $message  = str_replace("{nombre}", $detail->name, $message);
+        $message  = str_replace("{propiedad}", $detail->property, $message);
 
         $response = sendSms($detail->phone, $message);
 
