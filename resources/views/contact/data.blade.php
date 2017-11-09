@@ -47,7 +47,7 @@
                                     <td data-phone>{{ $contact->phone }}</td>
                                     <td data-email>{{ $contact->email }}</td>
                                     <td data-type>{{ $contact->type }}</td>
-                                    <td data-colony="{{ $contact->colony_id }}">{{ $contact->colony->name }}</td>
+                                    <td data-colony="{{ $contact->colony_id }}">{{ $contact->colony ? $contact->colony->name : 'Sin asignar' }}</td>
                                     <td data-link>{{ $contact->link }}</td>
                                     <td>Activo</td>
                                     <td>
