@@ -12,14 +12,17 @@ class WebHookController extends Controller
     public function webHook(Request $request)
     {
         Log::info($request->all());
-        $message = new InboxMessage();
+
         if ($request->has('referencia')) {
+            $message = new InboxMessage();
             $message->reference_id = $request->input('referencia');
             $message->type = 'C'; // Confirmation
             $message->destination = $request->input('destino');
             $message->status = $request->input('status');
             $message->confirmation_date = Carbon::createFromFormat('YmdHis', $request->input('fecha')); // '20170809230022'
-        } else {
+            $message->save();
+        } elseif ($request->has('referenciaid')) {
+            $message = new InboxMessage();
             $message->reference_id = $request->input('referenciaid');
             $message->type = 'R'; // Response
             $message->destination = $request->input('destinatario');
@@ -27,8 +30,8 @@ class WebHookController extends Controller
             $message->response = $request->input('respuesta');
             $message->sent_date = $request->input('fechaenvio');
             $message->received_date = $request->input('fecharespuesta');
+            $message->save();
         }
-        $message->save();
 
         return "OK";
     }
