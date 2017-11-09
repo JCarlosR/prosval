@@ -40,13 +40,13 @@
                                     <div class="chat-body clearfix">
                                         <div class="header_sec">
                                             <strong class="primary-font">{{ $contact->name }}</strong>
-                                            <strong class="pull-right">
-                                                09:45AM
-                                            </strong>
+                                            {{--<strong class="pull-right">--}}
+                                                {{--09:45AM--}}
+                                            {{--</strong>--}}
                                         </div>
                                         <div class="contact_sec">
                                             <strong class="primary-font">(+52) {{ $contact->phone }}</strong>
-                                            <span class="badge pull-right">3</span>
+                                            {{--<span class="badge pull-right">3</span>--}}
                                         </div>
                                     </div>
                                 </a>
