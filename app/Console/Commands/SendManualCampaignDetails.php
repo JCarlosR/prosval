@@ -50,7 +50,8 @@ class SendManualCampaignDetails extends Command
         $message  = str_replace("{nombre}", $detail->name, $message);
         $message  = str_replace("{propiedad}", $detail->property, $message);
 
-        $response = sendSms($detail->phone, $message);
+        $phone = $detail->phone;
+        $response = sendSms($phone, $message);
 
         $now = Carbon::now();
         if ($response->estatus == 'ok') {
