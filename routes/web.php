@@ -37,4 +37,5 @@ Route::get('/campaigns/create/automatic', 'CampaignController@automatic');
 Route::get('/detalle', 'CampaignDetailController@index');
 
 Route::get('/inbox', 'InboxController@index');
+Route::post('/inbox', 'InboxController@sendMessage');
 Route::get('/inbox/messages/webhook', 'WebHookController@webHook');

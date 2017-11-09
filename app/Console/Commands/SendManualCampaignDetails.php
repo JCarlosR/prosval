@@ -47,26 +47,8 @@ class SendManualCampaignDetails extends Command
     {
         $message = $detail->message;
         $message  = str_replace(" ", "%20", $message);
-        $phone  =  str_replace(' ', '', $detail->phone); // clear spaces in phone number
 
-        $fields = [
-            "apikey" => env('SMS_API_KEY'),
-            "mensaje" => $message,
-            "numcelular" => $phone,
-            "numregion" => "52"
-        ];
-        $options = [
-            CURLOPT_URL => "http://smsmasivos.com.mx/sms/api.envio.new.php",
-            CURLOPT_POST => TRUE,
-            CURLOPT_RETURNTRANSFER => TRUE,
-            CURLOPT_POSTFIELDS => $fields
-        ];
-        curl_setopt_array($ch = curl_init(), $options);
-
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        $response = json_decode($response);
+        $response = sendSms($detail->phone, $message);
 
         $now = Carbon::now();
         if ($response->estatus == 'ok') {
