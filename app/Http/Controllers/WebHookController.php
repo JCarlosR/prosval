@@ -17,22 +17,35 @@ class WebHookController extends Controller
             $message = new InboxMessage();
             $message->reference_id = $request->input('referencia');
             $message->type = 'C'; // Confirmation
-            $message->destination = $request->input('destino');
-            $message->status = $request->input('status');
-            $message->confirmation_date = Carbon::createFromFormat('YmdHis', $request->input('fecha')); // '20170809230022'
-            $message->save();
+
+            if (! $this->alreadyStored($message->reference_id, $message->type)) {
+                $message->destination = $request->input('destino');
+                $message->status = $request->input('status');
+                $message->confirmation_date = Carbon::createFromFormat('YmdHis', $request->input('fecha')); // '20170809230022'
+                $message->save();
+            }
+
         } elseif ($request->has('referenciaid')) {
             $message = new InboxMessage();
             $message->reference_id = $request->input('referenciaid');
             $message->type = 'R'; // Response
-            $message->destination = $request->input('destinatario');
-            $message->message = $request->input('mensaje');
-            $message->response = $request->input('respuesta');
-            $message->sent_date = $request->input('fechaenvio');
-            $message->received_date = $request->input('fecharespuesta');
-            $message->save();
+
+            if (! $this->alreadyStored($message->reference_id, $message->type)) {
+                $message->destination = $request->input('destinatario');
+                $message->message = $request->input('mensaje');
+                $message->response = $request->input('respuesta');
+                $message->sent_date = $request->input('fechaenvio');
+                $message->received_date = $request->input('fecharespuesta');
+                $message->save();
+            }
+
         }
 
         return "OK";
     }
+
+    public function alreadyStored($reference, $type) {
+        return InboxMessage::where('type', $type)->where('reference_id', $reference)->exists();
+    }
+
 }
