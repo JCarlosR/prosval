@@ -21,6 +21,11 @@ class CampaignDetailController extends Controller
 
     public function store(Request $request, Campaign $campaign)
     {
+        $rules = [
+            'phone' => 'required'
+        ];
+        $this->validate($request, $rules);
+
         $detail = new CampaignDetail();
         $detail->campaign_id = $campaign->id;
         $detail->schedule_date = $request->schedule_date;
@@ -44,6 +49,11 @@ class CampaignDetailController extends Controller
 
     public function update(Request $request)
     {
+        $rules = [
+            'phone' => 'required'
+        ];
+        $this->validate($request, $rules);
+
         $detail = CampaignDetail::find($request->input('detail_id'));
         $detail->schedule_date = $request->schedule_date;
         $detail->schedule_time = $request->schedule_time;
