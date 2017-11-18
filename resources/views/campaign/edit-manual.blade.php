@@ -47,7 +47,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="phone" class="control-label">Teléfono</label>
-                                <input type="text" placeholder="559 999 9999" data-mask="559 999 9999" class="form-control" id="phone" name="phone" required>
+                                <input type="text" placeholder="55 9999 9999" data-mask="55 9999 9999" class="form-control" id="phone" name="phone" required>
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="phone_2" class="control-label">Teléfono</label>
-                                <input type="text" placeholder="559 999 9999" data-mask="559 999 9999" class="form-control" id="phone_2" name="phone" required>
+                                <input type="text" placeholder="55 9999 9999" data-mask="55 9999 9999" class="form-control" id="phone_2" name="phone" required>
                             </div>
                         </div>
                     </div>
