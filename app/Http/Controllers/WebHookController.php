@@ -13,7 +13,7 @@ class WebHookController extends Controller
     {
         Log::info($request->all());
 
-        if ($request->has('referencia')) {
+        /*if ($request->has('referencia')) {
             $message = new InboxMessage();
             $message->reference_id = $request->input('referencia');
             $message->type = 'C'; // Confirmation
@@ -25,7 +25,7 @@ class WebHookController extends Controller
                 $message->save();
             }
 
-        } elseif ($request->has('referenciaid')) {
+        } else*/if ($request->has('referenciaid')) {
             $message = new InboxMessage();
             $message->reference_id = $request->input('referenciaid');
             $message->type = 'R'; // Response
