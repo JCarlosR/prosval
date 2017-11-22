@@ -133,6 +133,13 @@
                             <a href="/inbox" class="waves-effect"><i class="zmdi zmdi-comment-text-alt"></i> <span>Inbox</span></a>
                         </li>
 
+                        <li>
+                            <a href="/register" class="waves-effect">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <span>Registrar usuario</span>
+                            </a>
+                        </li>
+
                     </ul>
                     <div class="clearfix"></div>
                 </div>
