@@ -13,19 +13,20 @@ class WebHookController extends Controller
     {
         Log::info($request->all());
 
-        /*if ($request->has('referencia')) {
+        if ($request->has('referencia')) {
             $message = new InboxMessage();
             $message->reference_id = $request->input('referencia');
             $message->type = 'C'; // Confirmation
 
-            if (! $this->alreadyStored($message->reference_id, $message->type)) {
+            // used only for update status
+            if ($this->alreadyStored($message->reference_id, $message->type)) {
+                $message = InboxMessage::where('type', 'C')->where('reference_id', $message->reference_id)->first();
                 $message->destination = $request->input('destino');
                 $message->status = $request->input('status');
                 $message->confirmation_date = Carbon::createFromFormat('YmdHis', $request->input('fecha')); // '20170809230022'
                 $message->save();
             }
-
-        } else*/if ($request->has('referenciaid')) {
+        } elseif ($request->has('referenciaid')) {
             $message = new InboxMessage();
             $message->reference_id = $request->input('referenciaid');
             $message->type = 'R'; // Response

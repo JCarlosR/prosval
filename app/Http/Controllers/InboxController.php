@@ -44,7 +44,9 @@ class InboxController extends Controller
                 $message['content'] = $inboxMessage->message;
                 $message['date'] = $inboxMessage->confirmation_date;
                 $message['admin_chat'] = true;
+                $message['confirmed'] =  $inboxMessage->status == 0;
             }
+
             if ($message['content'] != '')
                 $messages->push($message);
         }
@@ -72,7 +74,7 @@ class InboxController extends Controller
 
             if (! $this->alreadyStored($inboxMessage->reference_id, $inboxMessage->type)) {
                 $inboxMessage->destination = "52$phone";
-                $inboxMessage->status = 0; // Entregado
+                $inboxMessage->status = null; // Have to wait for the callback for real confirmation
                 $inboxMessage->message = $message;
                 $inboxMessage->confirmation_date = Carbon::now();
                 $inboxMessage->save();

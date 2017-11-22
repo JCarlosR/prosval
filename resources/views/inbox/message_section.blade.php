@@ -32,6 +32,9 @@
                             <div class="chat-body1 clearfix">
                                 <p>{{ $message['content'] }}</p>
                                 <div class="chat_time pull-right">{{ $message['date'] }}</div>
+                                @if ($message['confirmed'] == false)
+                                    <p class="help-block">Aún no se ha confirmado la entrega de este mensaje</p>
+                                @endif
                             </div>
                         </li>
                     @else
