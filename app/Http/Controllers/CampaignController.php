@@ -133,8 +133,8 @@ class CampaignController extends Controller
             }
 
             // property
-            if ($property && strlen($property)>10) {
-                $errors[] = "Fila $row: La propiedad no debe exceder los 10 caracteres.";
+            if ($property && strlen($property)>255) {
+                $errors[] = "Fila $row: La propiedad no debe exceder los 255 caracteres.";
                 continue;
             }
 
