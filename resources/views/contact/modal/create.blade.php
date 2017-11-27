@@ -64,7 +64,7 @@
                         <div class="col-md-12">
                             <div class="form-group no-margin">
                                 <label for="link" class="control-label">Link</label>
-                                <input type="url" required class="form-control" name="link" id="link">
+                                <input type="url" class="form-control" name="link" id="link">
                             </div>
                         </div>
                     </div>
