@@ -170,6 +170,11 @@ class CampaignController extends Controller
                 continue;
             }
 
+            // replace non-existent name
+            if (!$name) {
+                $name = 'SinNom' . date('dmY');
+            }
+
             $detail = new CampaignDetail();
             $detail->campaign_id = $campaign->id;
             $detail->schedule_date = Carbon::createFromFormat('d/m/Y', $schedule_date);
