@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Campaign;
 use App\CampaignDetail;
+use App\Contact;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
@@ -33,7 +34,12 @@ class CampaignController extends Controller
 
     public function edit(Campaign $campaign)
     {
-        return view('campaign.edit-manual')->with(compact('campaign'));
+        $contacts = Contact::all(['name', 'phone'])->all();
+        foreach ($contacts as $key => $contact) {
+            $contacts[$key] = $contact->name . ' (' . $contact->phone . ')';
+        }
+        $contacts = json_encode($contacts);
+        return view('campaign.edit-manual')->with(compact('campaign', 'contacts'));
     }
 
     public function automatic()

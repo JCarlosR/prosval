@@ -4,6 +4,7 @@
 
 @section('styles')
     <link href="{{ asset('plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.css">
     <style>
         .table > tbody > tr > th {
             vertical-align: middle;
@@ -283,6 +284,8 @@
 
 @section('scripts')
     <script src="{{ asset('plugins/fileuploads/js/dropify.min.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.js"></script>
+
     <script>
         $(function () {
             $editModal = $('#edit-modal');
@@ -311,6 +314,8 @@
                     'fileSize': 'El tamaño del archivo es demasiado grande (máx. @{{ value }})'
                 }
             });
+
+            initAutocomplete();
         });
 
         var $editModal;
@@ -338,6 +343,28 @@
             $editModal.find('#link_2').val(link);
             $editModal.find('#content_2').val(message);
             $editModal.modal('show');
+        }
+
+        function initAutocomplete() {
+            var contacts = {!! $contacts !!};
+            $("#name").autoComplete({
+                source: function(term, suggest) {
+                    term = term.toLowerCase();
+                    var matches = [];
+                    for (var i=0; i<contacts.length; i++)
+                        if (~contacts[i].toLowerCase().indexOf(term))
+                            matches.push(contacts[i]);
+                    suggest(matches);
+                },
+                onSelect: function(event, term) {
+                    // console.log(event);
+                    console.log(term);
+                    var name = term.substr(0, term.indexOf('(')-1);
+                    var phone = term.substr(term.indexOf('(')+1, 12); // 10 digits +2 spaces
+                    $('#name').val(name);
+                    $('#phone').val(phone);
+                }
+            });
         }
     </script>
 @endsection
