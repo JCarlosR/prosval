@@ -85,6 +85,13 @@
             <form action="{{ url('/campaigns/'.$campaign->id.'/upload') }}" enctype="multipart/form-data" method="post">
                 {{ csrf_field() }}
                 <div class="modal-body">
+                    <p>
+                        Si tienes dudas sobre cómo cargar la información:
+                        <a href="/data ejemplo (no usar cabeceras).csv" class="btn btn-primary btn-xs">
+                            <i class="fa fa-download"></i> Descargar CSV de ejemplo
+                        </a>
+                    </p>
+
                     <input type="file" class="dropify" data-max-file-size="5M" name="csv" required>
                 </div>
                 <div class="modal-footer">
