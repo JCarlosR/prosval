@@ -79,10 +79,16 @@ class CampaignController extends Controller
         // dd($request->all());
 
         $file = $request->file('csv');
-        $lines = file($file);
+        $contents = file_get_contents($file);
+        $contents = str_replace("\r\n", "\r", $contents);
+        $lines = explode("\r", $contents);
+        // file function doesn't work for \r only (Mac case)
+        // only works for \r\n EOL
+        // dd($lines);
         $utf8_lines = array_map('utf8_encode', $lines);
+        // dd($utf8_lines);
         $rows = array_map('str_getcsv', $utf8_lines);
-
+        // dd($rows);
         $errors = [];
         $details = collect();
 
