@@ -40,7 +40,7 @@
                     @else
                         <li class="left clearfix admin_chat">
                            <span class="chat-img1 pull-right">
-                            <img src="//d2gcv4sxt84gxu.cloudfront.net/assets/default-user-avatars-original-d5efadcf497ea7b3d86c6f8d148d66633a29ce78fa8391af628adf32d9989354.png" alt="Administrador" class="img-circle">
+                            <img src="{{ asset('images/users/default.png') }}" alt="Administrador" class="img-circle">
                            </span>
                             <div class="chat-body1 clearfix">
                                 <p>{{ $message['content'] }}</p>
