@@ -40,11 +40,14 @@
                             <td>{{ $campaign->details()->where('status', 'Enviado')->count() }} / {{ $campaign->details()->count() }}</td>
                             <td>{{ $campaign->status }}</td>
                             <td>
-                                <a href="{{ url('/campaigns/edit/'.$campaign->id) }}" class="btn btn-icon waves-effect waves-light btn-success m-b-5" title="Editar programación">
+                                <a href="{{ url('/campaigns/edit/'.$campaign->id) }}" class="btn waves-effect waves-light btn-success" title="Editar programación">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="{{ url('/campaigns/'.$campaign->id.'/details') }}" class="btn btn-primary waves-effect waves-light btn-info m-b-5" role="button" title="Ver programación de envíos">
+                                <a href="{{ url('/campaigns/'.$campaign->id.'/details') }}" class="btn btn-primary waves-effect waves-light" title="Ver programación de envíos">
                                     <i class="fa fa-align-justify"></i>
+                                </a>
+                                <a href="{{ url('/campaigns/'.$campaign->id.'/delete') }}" class="btn btn-danger waves-effect waves-light" title="Eliminar campaña" onclick="return confirm('Seguro que desea eliminar este mensaje?');">
+                                    <i class="fa fa-remove"></i>
                                 </a>
                             </td>
                         </tr>

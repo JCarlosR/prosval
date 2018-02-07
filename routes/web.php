@@ -27,6 +27,7 @@ Route::post('/campaigns', 'CampaignController@store');
 Route::get('/campaigns/edit/{campaign}', 'CampaignController@edit');
 Route::put('/campaigns/edit/{campaign}/status', 'CampaignController@status');
 Route::post('/campaigns/{campaign}/upload', 'CampaignController@upload');
+Route::get('/campaigns/{campaign}/delete', 'CampaignController@destroy');
 // Details
 Route::post('/campaigns/{campaign}/details', 'CampaignDetailController@store');
 Route::get('/campaigns/details/{detail}/delete', 'CampaignDetailController@destroy');

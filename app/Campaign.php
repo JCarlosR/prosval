@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Campaign extends Model
 {
+    use SoftDeletes;
+
     public function details()
     {
         return $this->hasMany(CampaignDetail::class);

@@ -212,4 +212,16 @@ class CampaignController extends Controller
         return back()->with(compact('notification'));
     }
 
+    public function destroy(Campaign $campaign)
+    {
+        try {
+            $campaign->delete();
+            $notification = 'La campaña seleccionada se ha eliminado correctamente.';
+            return back()->with(compact('notification'));
+        } catch (Exception $e) {
+            $notification = 'Ha ocurrido un error al eliminar la campaña.';
+            return back()->with(compact('notification'));
+        }
+    }
+
 }
