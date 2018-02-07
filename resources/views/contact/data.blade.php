@@ -44,7 +44,7 @@
                             @foreach ($contacts as $contact)
                                 <tr>
                                     <td data-name>{{ $contact->name }}</td>
-                                    <td data-phone>{{ $contact->phone }}</td>
+                                    <td data-phone>{{ $contact->phone_formatted }}</td>
                                     <td data-email>{{ $contact->email }}</td>
                                     <td data-type>{{ $contact->type }}</td>
                                     <td data-colony="{{ $contact->colony_id }}">{{ $contact->colony ? $contact->colony->name : 'Sin asignar' }}</td>

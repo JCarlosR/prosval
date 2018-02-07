@@ -31,7 +31,7 @@ class ContactController extends Controller
     {
         $contact = new Contact();
         $contact->name = $request->name;
-        $contact->phone = $request->phone;
+        $contact->phone = str_replace(' ', '', $request->phone);
         $contact->email = $request->email;
         $contact->type = $request->type;
         $contact->colony_id = $request->colony_id;
@@ -46,7 +46,7 @@ class ContactController extends Controller
     {
         $contact = Contact::find($request->contact_id);
         $contact->name = $request->name;
-        $contact->phone = $request->phone;
+        $contact->phone = str_replace(' ', '', $request->phone);
         $contact->email = $request->email;
         $contact->type = $request->type;
         $contact->colony_id = $request->colony_id;

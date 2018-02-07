@@ -45,7 +45,7 @@
                                             {{--</strong>--}}
                                         </div>
                                         <div class="contact_sec">
-                                            <strong class="primary-font">(+52) {{ $contact->phone }}</strong>
+                                            <strong class="primary-font">(+52) {{ $contact->phone_formatted }}</strong>
                                             {{--<span class="badge pull-right">3</span>--}}
                                         </div>
                                     </div>
