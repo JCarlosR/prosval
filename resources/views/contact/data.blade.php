@@ -23,7 +23,7 @@
                     </div>
                 @endif
 
-                <table id="datatable" class="table table-striped table-bordered">
+                <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -44,7 +44,17 @@
                             <td data-email>{{ $contact->email }}</td>
                             <td data-type>{{ $contact->type }}</td>
                             <td data-colony="{{ $contact->colony_id }}">{{ $contact->colony ? $contact->colony->name : 'Sin asignar' }}</td>
-                            <td data-link>{{ $contact->link }}</td>
+                            <td>
+                                @if ($detail->link)
+                                    <a href="{{ $detail->link }}" data-detail="link" target="_blank" class="btn btn-default btn-sm">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                @else
+                                    <button class="btn btn-default btn-sm" disabled>
+                                        <i class="fa fa-link"></i>
+                                    </button>
+                                @endif
+                            </td>
                             <td>Activo</td>
                             <td>
                                 <button class="btn btn-sm waves-effect waves-light btn-success m-b-5" data-edit="{{ $contact->id }}" title="Editar contacto">
@@ -59,10 +69,8 @@
                     </tbody>
                 </table>
 
-
+                {{ $contacts->links() }}
             </div>
-
-            {{ $contacts->links() }}
 
         </div>
     </div>
@@ -87,9 +95,12 @@
                 var phone = $tr.find('[data-phone]').text();
                 var email = $tr.find('[data-email]').text();
                 var type = $tr.find('[data-type]').text();
-                var link = $tr.find('[data-link]').text();
+                var $link = $tr.find('[data-detail="link"]');
+                if ($link)
+                    var link = $link.attr('href');
+
                 var colony_id = $tr.find('[data-colony]').data('colony');
-                var colony = $tr.find('[data-colony]').text();
+                // var colony = $tr.find('[data-colony]').text();
                 // console.log(colony_id);
 
                 $modalEditContact.find('[name=contact_id]').val(id);
