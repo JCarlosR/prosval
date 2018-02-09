@@ -72,7 +72,7 @@ class InboxController extends Controller
             $inboxMessage->reference_id = $response->referencia;
             $inboxMessage->type = 'C'; // Confirmed sent message
 
-            if (! $this->alreadyStored($inboxMessage->reference_id, $inboxMessage->type)) {
+            if (! $inboxMessage->alreadyStored()) {
                 $inboxMessage->destination = "52$phone";
                 $inboxMessage->status = null; // Have to wait for the callback for real confirmation
                 $inboxMessage->message = $message;
@@ -87,7 +87,4 @@ class InboxController extends Controller
         return back()->with(compact('notification'));
     }
 
-    public function alreadyStored($reference, $type) {
-        return InboxMessage::where('type', $type)->where('reference_id', $reference)->exists();
-    }
 }

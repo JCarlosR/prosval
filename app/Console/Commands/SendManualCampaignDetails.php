@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Campaign;
 use App\CampaignDetail;
 use App\Contact;
+use App\InboxMessage;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
@@ -57,6 +58,19 @@ class SendManualCampaignDetails extends Command
         if ($response->estatus == 'ok') {
             $detail->status = 'Enviado';
             $this->info("Se envió satisfactoriamente un SMS a $phone a las $now");
+
+            // register
+            $inboxMessage = new InboxMessage();
+            $inboxMessage->reference_id = $response->referencia;
+            $inboxMessage->type = 'C'; // Confirmed sent message
+
+            if (! $inboxMessage->alreadyStored()) {
+                $inboxMessage->destination = "52$phone";
+                $inboxMessage->status = null; // Have to wait for the callback for real confirmation
+                $inboxMessage->message = $message;
+                $inboxMessage->confirmation_date = Carbon::now();
+                $inboxMessage->save();
+            }
         } else {
             $errorCode = $response->mensaje;
             $detail->status = "Error ($errorCode)";

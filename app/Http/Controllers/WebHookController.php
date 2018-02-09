@@ -19,7 +19,7 @@ class WebHookController extends Controller
             $message->type = 'C'; // Confirmation
 
             // used only for update status
-            if ($this->alreadyStored($message->reference_id, $message->type)) {
+            if ($message->alreadyStored()) {
                 $message = InboxMessage::where('type', 'C')->where('reference_id', $message->reference_id)->first();
                 $message->destination = $request->input('destino');
                 $message->status = $request->input('status');
@@ -31,7 +31,7 @@ class WebHookController extends Controller
             $message->reference_id = $request->input('referenciaid');
             $message->type = 'R'; // Response
 
-            if (! $this->alreadyStored($message->reference_id, $message->type)) {
+            if (! $message->alreadyStored()) {
                 $message->destination = $request->input('destinatario');
                 $message->message = $request->input('mensaje');
                 $message->response = $request->input('respuesta');
@@ -39,7 +39,6 @@ class WebHookController extends Controller
                 $message->received_date = $request->input('fecharespuesta');
                 $message->save();
             }
-
         }
 
         return "OK";
