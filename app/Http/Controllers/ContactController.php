@@ -17,7 +17,7 @@ class ContactController extends Controller
     public function data()
     {
         $municipalities = Municipality::all();
-        $contacts = Contact::where('spam', false)->with('colony')->get();
+        $contacts = Contact::where('spam', false)->with('colony')->paginate(20);
         return view('contact.data')->with(compact('municipalities', 'contacts'));
     }
 

@@ -5,75 +5,71 @@
 @section('content')     
 @include('contact.modal.create')
 @include('contact.modal.edit')
-
 <div class="content-page">
-    <!-- Start content -->
     <div class="content">
         <div class="container">
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card-box table-responsive">
-                        <div class="dropdown pull-right">
-                             <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#modalAddContact">Nuevo</button>
-                        </div>
+            <div class="card-box table-responsive">
+                <div class="dropdown pull-right">
+                     <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#modalAddContact">Nuevo</button>
+                </div>
 
-                        <h4 class="header-title m-t-0 m-b-30">Datos de contacto</h4>
+                <h4 class="header-title m-t-0 m-b-30">Datos de contacto</h4>
 
-                        @if (session('notification'))
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            {{ session('notification') }}
-                        </div>
-                        @endif
-
-                        <table id="datatable" class="table table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Teléfono</th>
-                                    <th>Correo</th>
-                                    <th>Tipo</th>
-                                    <th>Colonia</th>
-                                    <th>Link</th>
-                                    <th>Estatus</th>
-                                    <th>Opciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($contacts as $contact)
-                                <tr>
-                                    <td data-name>{{ $contact->name }}</td>
-                                    <td data-phone>{{ $contact->phone_formatted }}</td>
-                                    <td data-email>{{ $contact->email }}</td>
-                                    <td data-type>{{ $contact->type }}</td>
-                                    <td data-colony="{{ $contact->colony_id }}">{{ $contact->colony ? $contact->colony->name : 'Sin asignar' }}</td>
-                                    <td data-link>{{ $contact->link }}</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn btn-sm waves-effect waves-light btn-success m-b-5" data-edit="{{ $contact->id }}" title="Editar contacto">
-                                            <i class="fa fa-edit"></i>
-                                        </button>
-                                        <a href="{{ url('/contact/'.$contact->id.'/spam') }}" class="btn btn-sm waves-effect waves-light btn-danger m-b-5" title="Marcar como spam">
-                                            <i class="fa fa-remove"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                @if (session('notification'))
+                    <div class="alert alert-info alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        {{ session('notification') }}
                     </div>
-                </div><!-- end col -->
+                @endif
+
+                <table id="datatable" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Teléfono</th>
+                            <th>Correo</th>
+                            <th>Tipo</th>
+                            <th>Colonia</th>
+                            <th>Link</th>
+                            <th>Estatus</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($contacts as $contact)
+                        <tr>
+                            <td data-name>{{ $contact->name }}</td>
+                            <td data-phone>{{ $contact->phone_formatted }}</td>
+                            <td data-email>{{ $contact->email }}</td>
+                            <td data-type>{{ $contact->type }}</td>
+                            <td data-colony="{{ $contact->colony_id }}">{{ $contact->colony ? $contact->colony->name : 'Sin asignar' }}</td>
+                            <td data-link>{{ $contact->link }}</td>
+                            <td>Activo</td>
+                            <td>
+                                <button class="btn btn-sm waves-effect waves-light btn-success m-b-5" data-edit="{{ $contact->id }}" title="Editar contacto">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <a href="{{ url('/contact/'.$contact->id.'/spam') }}" class="btn btn-sm waves-effect waves-light btn-danger m-b-5" title="Marcar como spam">
+                                    <i class="fa fa-remove"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+
             </div>
-            <!-- end row -->
+
+            {{ $contacts->links() }}
 
         </div>
     </div>
 
     <footer class="footer">
-        2017 © PROSVAL.
+        2017 - 2018 © PROSVAL.
     </footer>
-
 </div>
 @endsection
 
