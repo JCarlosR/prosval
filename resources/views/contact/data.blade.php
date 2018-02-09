@@ -45,8 +45,8 @@
                             <td data-type>{{ $contact->type }}</td>
                             <td data-colony="{{ $contact->colony_id }}">{{ $contact->colony ? $contact->colony->name : 'Sin asignar' }}</td>
                             <td>
-                                @if ($detail->link)
-                                    <a href="{{ $detail->link }}" data-detail="link" target="_blank" class="btn btn-default btn-sm">
+                                @if ($contact->link)
+                                    <a href="{{ $contact->link }}" data-detail="link" target="_blank" class="btn btn-default btn-sm">
                                         <i class="fa fa-link"></i>
                                     </a>
                                 @else
