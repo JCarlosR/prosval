@@ -17,4 +17,6 @@ class Contact extends Model
         $phone = substr_replace($phone, ' ', 7, 0);
         return $phone;
     }
+
+
 }

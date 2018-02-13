@@ -11,4 +11,9 @@ class InboxMessage extends Model
         return InboxMessage::where('type', $this->type)
             ->where('reference_id', $this->reference)->exists();
     }
+
+//    public function contact()
+//    {
+//        return $this->belongsTo(Contact::class, 'destination', 'phone');
+//    }
 }

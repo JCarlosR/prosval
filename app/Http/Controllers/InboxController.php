@@ -6,6 +6,7 @@ use App\Contact;
 use App\InboxMessage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InboxController extends Controller
 {
@@ -16,7 +17,26 @@ class InboxController extends Controller
 
     public function index(Request $request)
     {
-        $contacts = Contact::where('spam', false)->get();
+        // $contacts = Contact::where('spam', false)->get();
+
+        // DB::enableQueryLog();
+        $lastMessages = InboxMessage::orderBy('id', 'desc')
+            ->groupBy('destination')->distinct('destination')
+            ->pluck('destination');
+        // dd(DB::getQueryLog());
+
+        $lastMessages = $lastMessages->map(function ($destination) {
+            return substr($destination, 2);
+        });
+
+        $lastMessagesImploded = implode(',', $lastMessages->toArray());
+
+        $contacts = Contact::where('spam', false)
+            ->whereIn('phone', $lastMessages)
+            ->groupBy('phone')->distinct('phone')
+            ->orderByRaw(DB::raw("FIELD(phone, $lastMessagesImploded)"))
+            ->get();
+        // dd($contacts);
 
         if ($request->has('contact')) {
             $selected_contact = $contacts->where('id', $request->input('contact'))->first();
@@ -24,14 +44,14 @@ class InboxController extends Controller
             $selected_contact = $contacts->first();
         }
 
+        // messages to show in the box
         $destination = '52' . str_replace(' ', '', $selected_contact->phone); // prepend country code
         $inboxMessages = InboxMessage::where('destination', $destination)->get([
             'reference_id', 'message', 'response', 'sent_date', 'received_date', 'confirmation_date', 'type'
         ]);
-        // dd($inboxMessages);
 
+        // re-structure messages to easily show in the view
         $messages = collect();
-
         foreach ($inboxMessages as $inboxMessage) {
             // print_r($message->reference_id);
             // echo '<br>';
