@@ -7,6 +7,7 @@ use App\InboxMessage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Throwable;
 
 class InboxController extends Controller
 {
@@ -39,13 +40,19 @@ class InboxController extends Controller
         // dd($contacts);
 
         if ($request->has('contact')) {
-            $selected_contact = $contacts->where('id', $request->input('contact'))->first();
+            $selectedContact = $contacts->where('id', $request->input('contact'))->first();
         } else {
-            $selected_contact = $contacts->first();
+            $selectedContact = $contacts->first();
         }
+        $messages = $this->getStructuredInboxMessages($selectedContact);
 
+        return view('inbox')->with(compact('contacts', 'selectedContact', 'messages'));
+    }
+
+    private function getStructuredInboxMessages(Contact $contact)
+    {
         // messages to show in the box
-        $destination = '52' . str_replace(' ', '', $selected_contact->phone); // prepend country code
+        $destination = '52' . $contact->phone; // prepend country code
         $inboxMessages = InboxMessage::where('destination', $destination)->get([
             'reference_id', 'message', 'response', 'sent_date', 'received_date', 'confirmation_date', 'type'
         ]);
@@ -70,9 +77,21 @@ class InboxController extends Controller
             if ($message['content'] != '')
                 $messages->push($message);
         }
-        // dd($messages);
+        return $messages;
+    }
 
-        return view('inbox')->with(compact('contacts', 'selected_contact', 'messages'));
+    public function renderInboxMessages(Contact $contact)
+    {
+        $messages = $this->getStructuredInboxMessages($contact);
+
+        try {
+            return view('inbox.message_section', [
+                'messages' => $messages,
+                'selectedContact' => $contact // param route name
+            ])->render();
+        } catch (Throwable $e) {
+            return null;
+        }
     }
 
     public function sendMessage(Request $request)

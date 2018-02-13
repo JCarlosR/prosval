@@ -33,7 +33,7 @@
                     <ul class="list-unstyled">
                         @foreach ($contacts as $contact)
                             <li class="left clearfix">
-                                <a href="{{ url('inbox?contact='.$contact->id) }}">
+                                <a href="{{ url('/contact/'.$contact->id.'/messages') }}" data-load="messages">
                                     <span class="chat-img pull-left">
                                         <img src="https://d2gcv4sxt84gxu.cloudfront.net/assets/default-user-avatars-original-d5efadcf497ea7b3d86c6f8d148d66633a29ce78fa8391af628adf32d9989354.png" alt="User Avatar" class="img-circle">
                                     </span>
@@ -67,8 +67,16 @@
 
 @section('scripts')
     <script>
-        $('#new_message').maxlength({
-            alwaysShow: true
-        });
+        $('#new_message').maxlength({ alwaysShow: true });
+        $(document).on('click', '[data-load="messages"]', loadMessages);
+
+        function loadMessages(event) {
+            event.preventDefault();
+
+            const messagesUrl = $(this).attr('href');
+            $.get(messagesUrl, function (data) {
+                $('#inboxMessages').replaceWith(data);
+            });
+        }
     </script>
 @endsection
