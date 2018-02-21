@@ -100,11 +100,14 @@ class CampaignController extends Controller
             $name = $item[2];
             $phone = $item[3];
             $message = $item[4];
-            $property = $item[5];
+
+            if (isset($item[5]))
+                $property = $item[5];
+            else $property = null;
+
             if (isset($item[6]))
                 $link = $item[6];
-            else
-                $link = null;
+            else $link = null;
 
             // validate date
             try {
