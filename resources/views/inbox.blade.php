@@ -39,13 +39,21 @@
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header_sec">
-                                            <strong class="primary-font">{{ $contact->name }}</strong>
+                                            @if ($contact->last_message_read)
+                                                <span>{{ $contact->name }}</span>
+                                            @else
+                                                <strong>{{ $contact->name }}</strong>
+                                            @endif
                                             {{--<strong class="pull-right">--}}
                                                 {{--09:45AM--}}
                                             {{--</strong>--}}
                                         </div>
                                         <div class="contact_sec">
-                                            <strong class="primary-font">(+52) {{ $contact->phone_formatted }}</strong>
+                                            @if ($contact->last_message_read)
+                                                <span>(+52) {{ $contact->phone_formatted }}</span>
+                                            @else
+                                                <strong>(+52) {{ $contact->phone_formatted }}</strong>
+                                            @endif
                                             {{--<span class="badge pull-right">3</span>--}}
                                         </div>
                                     </div>

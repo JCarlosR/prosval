@@ -22,7 +22,7 @@ class InboxController extends Controller
 
         // DB::enableQueryLog();
         $lastMessages = InboxMessage::orderBy('id', 'desc')
-            ->groupBy('destination')->distinct('destination')
+            ->orderBy('destination')->distinct('destination')
             ->pluck('destination');
         // dd(DB::getQueryLog());
 
@@ -30,6 +30,7 @@ class InboxController extends Controller
             return substr($destination, 2);
         });
 
+        // dd($lastMessages);
         $lastMessagesImploded = implode(',', $lastMessages->toArray());
 
         $contacts = Contact::where('spam', false)
