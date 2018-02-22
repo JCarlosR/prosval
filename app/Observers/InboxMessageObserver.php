@@ -5,7 +5,7 @@ use App\InboxMessage;
 
 class InboxMessageObserver
 {
-    public function created(InboxMessage $message)
+    public function saved(InboxMessage $message)
     {
         // update to not read when client responses
         if ($message->type == 'R') {

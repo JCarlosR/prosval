@@ -9,7 +9,7 @@ class InboxMessage extends Model
     public function alreadyStored()
     {
         return InboxMessage::where('type', $this->type)
-            ->where('reference_id', $this->reference)->exists();
+            ->where('reference_id', $this->reference_id)->exists();
     }
 
 //    public function contact()
