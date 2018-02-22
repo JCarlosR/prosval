@@ -85,6 +85,9 @@ class InboxController extends Controller
     {
         $messages = $this->getStructuredInboxMessages($contact);
 
+        $contact->last_message_read = true;
+        $contact->save();
+
         try {
             return view('inbox.message_section', [
                 'messages' => $messages,
