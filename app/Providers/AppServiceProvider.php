@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use App\InboxMessage;
+use App\Observers\InboxMessageObserver;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use InboxMessageObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
