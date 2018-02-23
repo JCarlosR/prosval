@@ -36,6 +36,7 @@ class InboxController extends Controller
         $contacts = Contact::where('spam', false)
             ->whereIn('phone', $lastMessages)
             ->groupBy('phone')->distinct('phone')
+            ->orderBy('updated_at', 'desc')
             ->orderByRaw(DB::raw("FIELD(phone, $lastMessagesImploded)"))
             ->get();
         // dd($contacts);
