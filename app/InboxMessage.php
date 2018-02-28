@@ -12,7 +12,7 @@ class InboxMessage extends Model
             ->where('reference_id', $this->reference_id);
 
         if ($this->type == 'R')
-            $query = $query->where('sent_date', $this->sent_date);
+            $query = $query->where('received_date', $this->received_date);
 
         return $query->exists();
     }

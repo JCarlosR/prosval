@@ -29,14 +29,14 @@ class WebHookController extends Controller
         } elseif ($request->has('referenciaid')) {
             $message = new InboxMessage();
             $message->reference_id = $request->input('referenciaid');
-            $message->sent_date = $request->input('fechaenvio');
+            $message->received_date = $request->input('fecharespuesta');
             $message->type = 'R'; // Response
 
             if (! $message->alreadyStored()) {
                 $message->destination = $request->input('destinatario');
                 $message->message = $request->input('mensaje');
                 $message->response = $request->input('respuesta');
-                $message->received_date = $request->input('fecharespuesta');
+                $message->sent_date = $request->input('fechaenvio');
                 $message->save();
             }
         }
