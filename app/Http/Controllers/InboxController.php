@@ -61,6 +61,7 @@ class InboxController extends Controller
 
         // re-structure messages to easily show in the view
         $messages = collect();
+        // dd($inboxMessages->toArray());
         foreach ($inboxMessages as $inboxMessage) {
             // print_r($message->reference_id);
             // echo '<br>';

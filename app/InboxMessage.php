@@ -8,8 +8,13 @@ class InboxMessage extends Model
 {
     public function alreadyStored()
     {
-        return InboxMessage::where('type', $this->type)
-            ->where('reference_id', $this->reference_id)->exists();
+        $query = InboxMessage::where('type', $this->type)
+            ->where('reference_id', $this->reference_id);
+
+        if ($this->type == 'R')
+            $query = $query->where('sent_date', $this->sent_date);
+
+        return $query->exists();
     }
 
 //    public function contact()
