@@ -10,7 +10,7 @@ function sendSms($phone, $message) {
         "numregion" => "52"
     ];
     $options = [
-        CURLOPT_URL => "http://smsmasivos.com.mx/sms/api.envio.new.php",
+        CURLOPT_URL => "https://app.smsmasivos.com.mx/components/api/api.envio.sms.php",
         CURLOPT_POST => TRUE,
         CURLOPT_RETURNTRANSFER => TRUE,
         CURLOPT_POSTFIELDS => $fields
