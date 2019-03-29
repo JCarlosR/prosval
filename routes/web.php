@@ -35,6 +35,11 @@ Route::get('/campaigns/{campaign}/details', 'CampaignDetailController@index');
 Route::get('/campaigns/create/automatic', 'CampaignController@automatic');
 Route::get('/detalle', 'CampaignDetailController@index');
 
+
+// WhatsApp
+Route::get('/whats-app', 'WhatsAppController@index');
+Route::post('/whats-app', 'WhatsAppController@send');
+// Inbox
 Route::get('/inbox', 'InboxController@index');
 Route::post('/inbox', 'InboxController@sendMessage');
 Route::get('/inbox/messages/webhook', 'WebHookController@webHook');
