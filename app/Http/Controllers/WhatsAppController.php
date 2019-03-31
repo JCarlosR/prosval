@@ -29,9 +29,15 @@ class WhatsAppController extends Controller
         $message = '"'. $validatedData['message'] . '"';
         $phone = $validatedData['phone'];
 
-        $filePath = 'D:\Python\WhatsAppBot\to_arguments.py';
+        // windows example: 'D:\Python\WhatsAppBot\to_arguments.py'
+        // linux example: 'D:\Python\WhatsAppBot\to_arguments.py'
+        $filePath = env('python_script_path', 'D:\Python\WhatsAppBot\to_arguments.py');
 
-        $process = new Process("python $filePath -m $message -p $phone");
+        // PHP_OS could be 'Linux' or 'WINNT' (Windows)
+
+        // the command is python3 in some installations
+        $python = env('python_command', 'python');
+        $process = new Process("$python $filePath -m $message -p $phone");
 
         $process->run();
         // $process->start();
