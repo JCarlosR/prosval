@@ -31,12 +31,12 @@ class WhatsAppController extends Controller
 
         // windows example: 'D:\Python\WhatsAppBot\to_arguments.py'
         // linux example: 'D:\Python\WhatsAppBot\to_arguments.py'
-        $filePath = env('python_script_path', 'D:\Python\WhatsAppBot\to_arguments.py');
+        $filePath = env('PYTHON_SCRIPT_PATH', 'D:\Python\WhatsAppBot\to_arguments.py');
 
         // PHP_OS could be 'Linux' or 'WINNT' (Windows)
 
         // the command is python3 in some installations
-        $python = env('python_command', 'python');
+        $python = env('PYTHON_COMMAND', 'python');
         $process = new Process("$python $filePath -m $message -p $phone");
 
         $process->run();
