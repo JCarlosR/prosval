@@ -12,10 +12,10 @@
    <div class="container">
 
        @if (session('notification'))
-       <div class="alert alert-info alert-dismissable">
-           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-           {{ session('notification') }}
-       </div>
+           <div class="alert alert-info alert-dismissable">
+               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+               {{ session('notification') }}
+           </div>
        @endif
 
       <div class="chat_container">

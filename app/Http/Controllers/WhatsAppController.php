@@ -43,9 +43,10 @@ class WhatsAppController extends Controller
         // $process->start();
 
 
-        if ($process->isSuccessful())
-            dd($process->getOutput());
-        else
+        if ($process->isSuccessful()) {
+            $notification = 'El mensaje fue enviado correctamente.';
+            return view('whats-app.index')->with(compact('notification'));
+        } else
             dd($process->getErrorOutput());
     }
 }
