@@ -24,9 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $path = 'sms_output.log';
+        $path = 'campaigns_output.log';
 
-        $schedule->command('details:send')
+        $schedule->command('campaigns:send')
             ->everyMinute()->sendOutputTo($path);
     }
 
