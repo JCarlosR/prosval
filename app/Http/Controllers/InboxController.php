@@ -31,14 +31,19 @@ class InboxController extends Controller
         });
 
         // dd($lastMessages);
-        $lastMessagesImploded = implode(',', $lastMessages->toArray());
 
-        $contacts = Contact::where('spam', false)
+        $contactsQuery = Contact::where('spam', false)
             ->whereIn('phone', $lastMessages)
             ->groupBy('phone')->distinct('phone')
-            ->orderBy('updated_at', 'desc')
-            ->orderByRaw(DB::raw("FIELD(phone, $lastMessagesImploded)"))
-            ->get();
+            ->orderBy('updated_at', 'desc');
+
+        if ($lastMessages->count() > 0) {
+            $lastMessagesImploded = implode(',', $lastMessages->toArray());
+            $orderByFields = "FIELD(phone, $lastMessagesImploded)";
+            $contactsQuery->orderByRaw(DB::raw($orderByFields));
+        }
+
+        $contacts = $contactsQuery->get();
         // dd($contacts);
 
         if ($request->has('contact')) {
@@ -46,7 +51,11 @@ class InboxController extends Controller
         } else {
             $selectedContact = $contacts->first();
         }
-        $messages = $this->getStructuredInboxMessages($selectedContact);
+
+        if ($selectedContact)
+            $messages = $this->getStructuredInboxMessages($selectedContact);
+        else
+            $messages = [];
 
         return view('inbox')->with(compact('contacts', 'selectedContact', 'messages'));
     }

@@ -25,10 +25,14 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
         $campaign = new Campaign();
+
         $campaign->name = $request->name;
         $campaign->status = 'Pendiente';
         $campaign->type = $request->type;
+        $campaign->via = $request->via;
+
         $campaign->save();
+
         return redirect('/campaigns/edit/'.$campaign->id);
     }
 
@@ -39,6 +43,7 @@ class CampaignController extends Controller
             $contacts[$key] = $contact->name . ' (' . $contact->phone . ')';
         }
         $contacts = json_encode($contacts);
+        // dd($contacts);
         return view('campaign.edit-manual')->with(compact('campaign', 'contacts'));
     }
 

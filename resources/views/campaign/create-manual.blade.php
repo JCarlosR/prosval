@@ -8,16 +8,25 @@
             <div class="container">
 
                 <div class="card-box">
+                    <div class="alert alert-info text-primary">
+                        Este es el primer paso. Defina un nombre para la nueva campaña. A continuación podrá definir los destinatarios.
+                    </div>
+
                     <form action="/campaigns" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="type" value="manual">
                         <div class="form-group">
-                            <label for="campaign_name">Nombre campaña</label>
+                            <label for="campaign_name">Nombre de la campaña</label>
                             <input type="text" name="name"
-                                   placeholder="Escribir nombre de campaña" class="form-control" id="campaign_name" required>
-                            <span class="help-block">
-                            Ingrese un nombre para la nueva campaña y a continuación podrá definir los destinatarios.
-                        </span>
+                                   placeholder="¿Sobre qué es esta campaña?" class="form-control" id="campaign_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="campaign_via">Vía o medio de envío de la campaña</label>
+                            <select name="via" id="campaign_via" class="form-control">
+                                <option value="">Tipo de envío</option>
+                                <option value="SMS" selected>Mensaje SMS</option>
+                                <option value="WhatsApp">WhatsApp</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn waves-effect waves-light btn-primary">
@@ -32,7 +41,7 @@
         </div>
 
         <footer class="footer">
-            2017 © PROSVAL.
+            2017 - {{ date('Y') }} © PROSVAL.
         </footer>
     </div>
 @endsection

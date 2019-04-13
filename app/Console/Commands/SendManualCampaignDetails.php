@@ -56,7 +56,7 @@ class SendManualCampaignDetails extends Command
             $this->sendWhatsAppMessage($detail);
     }
 
-    public function sendSmsMessage(CampaignDetail $detail)
+    private function sendSmsMessage(CampaignDetail $detail)
     {
         // prepare message
         $message = $detail->getPreparedMessage();
@@ -96,7 +96,7 @@ class SendManualCampaignDetails extends Command
         }
     }
 
-    public function sendWhatsAppMessage(CampaignDetail $detail)
+    private function sendWhatsAppMessage(CampaignDetail $detail)
     {
 
     }

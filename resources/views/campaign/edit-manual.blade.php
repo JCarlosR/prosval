@@ -294,6 +294,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.js"></script>
 
     <script>
+        let $editModal;
+
         $(function () {
             $editModal = $('#edit-modal');
             $(document).on('click', '[data-edit]', onClickEditDetail);
@@ -325,20 +327,20 @@
             initAutocomplete();
         });
 
-        var $editModal;
         function onClickEditDetail() {
-            var $tr = $(this).parents('tr');
-            var detail_id = $tr.data('detail');
-            var date = $tr.find('[data-detail="date"]').text();
-            var time = $tr.find('[data-detail="time"]').text();
-            var name = $tr.find('[data-detail="name"]').text();
-            var phone = $tr.find('[data-detail="phone"]').text();
-            var property = $tr.find('[data-detail="property"]').text();
-            var $link = $tr.find('[data-detail="link"]');
+            const $tr = $(this).parents('tr');
+            const detail_id = $tr.data('detail');
+            const date = $tr.find('[data-detail="date"]').text();
+            const time = $tr.find('[data-detail="time"]').text();
+            const name = $tr.find('[data-detail="name"]').text();
+            const phone = $tr.find('[data-detail="phone"]').text();
+            const property = $tr.find('[data-detail="property"]').text();
+            const $link = $tr.find('[data-detail="link"]');
             if ($link) {
                 var link = $link.attr('href');
             }
-            var message = $tr.find('[data-detail="message"]').text();
+
+            const message = $tr.find('[data-detail="message"]').text();
 
             // set the values read from the table
             $editModal.find('#edit_detail_id').val(detail_id);
@@ -353,7 +355,7 @@
         }
 
         function initAutocomplete() {
-            var contacts = {!! $contacts !!};
+            const contacts = {!! $contacts !!};
             $("#name").autoComplete({
                 source: function(term, suggest) {
                     term = term.toLowerCase();
