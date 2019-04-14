@@ -26,9 +26,9 @@ class WhatsAppSender
         $this->message = '"'. $inputMessage . '"';
     }
 
-    public function setPhone($inputPhone)
+    public function setPhone($inputPhone, $countryCode='52')
     {
-        $this->phone = $inputPhone;
+        $this->phone = $countryCode . $inputPhone;
     }
 
     public function send()

@@ -8,17 +8,21 @@ use App\Contact;
 use App\InboxMessage;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Prosval\Services\WhatsAppSender;
 
 class SendManualCampaignDetails extends Command
 {
 
     protected $signature = 'campaigns:send';
-
     protected $description = 'Send message (SMS or WhatsApp) depending on the details of the active campaigns.';
 
-    public function __construct()
+    protected $whatsApp;
+
+    public function __construct(WhatsAppSender $whatsAppSender)
     {
         parent::__construct();
+
+        $this->whatsApp = $whatsAppSender;
     }
 
     public function handle()
@@ -84,10 +88,14 @@ class SendManualCampaignDetails extends Command
                 $inboxMessage->save();
             }
         } else {
-            $errorCode = $response->mensaje;
-            $detail->status = "Error ($errorCode)";
-            $this->info("Envío fallido: SMS a $phone, a las $now ($errorCode)");
+            $errorMessage = $response->mensaje;
+
+            $detail->response = $errorMessage;
+            $detail->status = "Error SMS";
+
+            $this->info("Envío fallido: SMS a $phone, a las $now ($errorMessage)");
         }
+
         $saved = $detail->save();
 
         if ($saved) {
@@ -98,6 +106,50 @@ class SendManualCampaignDetails extends Command
 
     private function sendWhatsAppMessage(CampaignDetail $detail)
     {
+        // prepare and set message and phone
+        $message = $detail->getPreparedMessage();
+        $this->whatsApp->setMessage($message);
 
+        $phone = $detail->getPreparedPhone();
+        $this->whatsApp->setPhone($phone);
+
+        $now = Carbon::now();
+
+        $result = $this->whatsApp->send();
+
+        // handle response
+        if ($result['success']) {
+            $detail->status = 'Enviado';
+
+            $this->info("Envió satisfactorio: WhatsApp a $phone, a las $now");
+
+            // register
+            /*
+            $inboxMessage = new InboxMessage();
+            $inboxMessage->reference_id = $response->referencia;
+            $inboxMessage->type = 'C'; // Confirmed sent message
+
+            if (! $inboxMessage->alreadyStored()) {
+                $inboxMessage->destination = "52$phone";
+                $inboxMessage->status = null; // it has to wait for the callback (for real confirmation)
+                $inboxMessage->message = $message;
+                $inboxMessage->confirmation_date = $now;
+                $inboxMessage->save();
+            }
+            */
+        } else {
+            $detail->status = "Error WhatsApp";
+
+            $errorMessage = $result['message'];
+            $this->info("Envío fallido: SMS a $phone, a las $now ($errorMessage)");
+        }
+
+        $detail->response = $result['message'];
+        $saved = $detail->save();
+
+        if ($saved) {
+            // register new contact
+            $detail->saveAsNewContactIfNotExists();
+        }
     }
 }

@@ -30,14 +30,14 @@ class WhatsAppController extends Controller
         $whatsApp->setMessage($validatedData['message']);
         $whatsApp->setPhone($validatedData['phone']);
 
-        $results = $whatsApp->send();
+        $result = $whatsApp->send();
 
-        if ($results['success']) {
+        if ($result['success']) {
             // $notification = 'El mensaje fue enviado correctamente.';
-            $notification = $results['message'];
+            $notification = $result['message'];
             return back()->with(compact('notification'));
         } else {
-            return $results['message'];
+            return $result['message'];
         }
     }
 }
