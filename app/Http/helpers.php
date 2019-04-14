@@ -1,7 +1,6 @@
 <?php
 
 function sendSms($phone, $message) {
-    $phone  =  str_replace(' ', '', $phone); // clear spaces in phone number
 
     $fields = [
         "apikey" => env('SMS_API_KEY'),

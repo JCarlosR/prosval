@@ -58,9 +58,9 @@ class SendManualCampaignDetails extends Command
 
     private function sendSmsMessage(CampaignDetail $detail)
     {
-        // prepare message
+        // prepare message and phone
         $message = $detail->getPreparedMessage();
-        $phone = $detail->phone;
+        $phone = $detail->getPreparedPhone();
 
         $response = sendSms($phone, $message);
 

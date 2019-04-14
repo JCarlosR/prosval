@@ -14,6 +14,12 @@ class CampaignDetail extends Model
         return $message;
     }
 
+    public function getPreparedPhone()
+    {
+        // clear spaces in phone number
+        return str_replace(' ', '', $this->phone);
+    }
+
     public function saveAsNewContactIfNotExists()
     {
         $contactNotExists = !Contact::where('phone', $this->phone)->exists();
