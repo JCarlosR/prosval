@@ -41,7 +41,7 @@ class SendManualCampaignDetails extends Command
                 // dd($now->diffInMinutes($schedule_date_time));
 
                 if ($now->diffInMinutes($schedule_date_time) < 2) {
-                   $this->deliverMessage($detail);
+                   $this->deliverMessage($detail, $campaign->via);
                 }
             }
 
@@ -52,11 +52,11 @@ class SendManualCampaignDetails extends Command
         }
     }
 
-    private function deliverMessage(CampaignDetail $detail)
+    private function deliverMessage(CampaignDetail $detail, $via = 'SMS')
     {
-        if ($detail->via === 'SMS')
+        if ($via === 'SMS')
             $this->sendSmsMessage($detail);
-        elseif ($detail->via === 'WhatsApp')
+        elseif ($via === 'WhatsApp')
             $this->sendWhatsAppMessage($detail);
     }
 
