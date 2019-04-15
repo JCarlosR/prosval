@@ -52,11 +52,11 @@ class SendManualCampaignDetails extends Command
         }
     }
 
-    private function deliverMessage(CampaignDetail $detail, $type='SMS')
+    private function deliverMessage(CampaignDetail $detail)
     {
-        if ($type === 'SMS')
+        if ($detail->via === 'SMS')
             $this->sendSmsMessage($detail);
-        elseif ($type === 'WhatsApp')
+        elseif ($detail->via === 'WhatsApp')
             $this->sendWhatsAppMessage($detail);
     }
 
