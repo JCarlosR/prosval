@@ -35,7 +35,7 @@
         <li>
             <a href="/lamparin" class="waves-effect" title="Extracción de datos usando Lamparín">
                 <i class="zmdi zmdi-view-web"></i>
-                <span>Lamparín</span>
+                <span>Extracción de datos</span>
             </a>
         </li>
         <li>

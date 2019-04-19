@@ -11,6 +11,11 @@ class ScrapingController extends Controller
         'colonia', 'copia_tel', 'titulo', 'descripcion', 'precio1', 'precio2', 'vendedor', 'telefono', 'email', 'codigo_postal', 'imagen', 'link', 'link_compartir', 'fecha_nro', 'fecha_carga', 'sku'
     ];
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function lamparin()
     {
         // $ar = $db->traer_campos();
