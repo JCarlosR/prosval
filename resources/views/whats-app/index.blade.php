@@ -21,8 +21,8 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <label for="phone">Número móvil</label>
-                            <input type="text" placeholder="Ingrese sólo dígitos" name="phone" class="form-control">
+                            <label for="phone">Teléfono</label>
+                            <input type="text" placeholder="55 9999 9999" data-mask="55 9999 9999" class="form-control" id="phone" name="phone" required>
                             <p class="help-block">No se admiten espacios ni caracteres especiales.</p>
                         </div>
 
