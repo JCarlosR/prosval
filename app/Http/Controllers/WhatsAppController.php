@@ -25,7 +25,8 @@ class WhatsAppController extends Controller
             'message' => 'required'
         ];
         $validatedData = $request->validate($rules);
-        // dd($validatedData);
+
+        $validatedData['phone'] = str_replace(' ', '', $validatedData['phone']);
 
         $whatsApp->setMessage($validatedData['message']);
         $whatsApp->setPhone($validatedData['phone']);
