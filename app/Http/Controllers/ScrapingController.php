@@ -65,15 +65,7 @@ class ScrapingController extends Controller
 
                 if ($field->is_select) {
                     $field->options = $this->getOptionsSelect($fieldName);
-                } /*else {
-                    if ($fieldName == 'id') {
-                        $html_campos[] = '<label for="'.$fieldName.'">' . $label . ' >= </label><input type="text" name="'.$fieldName.'">';
-                    } elseif ($fieldName == 'fecha_anuncio') {
-                        $html_campos[] = '<label for="'.$fieldName.'">' . $label . ' entre </label><input type="text" name="'.$fieldName.'[]" placeholder="formato: AAAA-MM-DD">&nbsp;&nbsp;y&nbsp;&nbsp;<input type="text" name="'.$fieldName.'[]" placeholder="formato: AAAA-MM-DD">';
-                    } else {
-                        $html_campos[] = '<label for="'.$fieldName.'">' . $label . ' = </label><input type="text" name="'.$fieldName.'">';
-                    }
-                }*/
+                }
 
                 $fields[] = $field;
             }
@@ -84,7 +76,7 @@ class ScrapingController extends Controller
     }
 
     private function getOptionsSelect($field='aviso') {
-        // 'select distinct '.$p_campo.' as valor from anuncios order by ' . $p_campo
+        // select distinct $field from anuncios order by $field
         $options = Anuncio::select($field)->distinct()->orderBy($field)->pluck($field);
         return $options->toArray();
     }
@@ -98,11 +90,11 @@ class ScrapingController extends Controller
         foreach ($parameters as $key => $value) {
             if(!in_array($key, $this->stringFields) && !empty($value)){
                 if ($key == 'id') {
-                    // $campos_where[] = $key." >= ".addslashes($value);
+                    // >=
                     $query->where('id', '>=', $value);
                 } elseif ($key == 'fecha_anuncio'){
                     if(!empty($value[1])) {
-                        // $campos_where[] = $key." between '".addslashes($value[0])." 00:00' and '".addslashes($value[1])." 23:59'";
+                        // between $value[0] and $value[1]
                         $from = $value[0] . ' 00:00';
                         $to = $value[1] . ' 23:59';
                         $query->whereBetween('fecha_anuncio', [
@@ -110,7 +102,7 @@ class ScrapingController extends Controller
                         ]);
                     }
                 } else {
-                    // $campos_where[] = $key." = '".addslashes($value)."'";
+                    // =
                     $query->where($key, $value);
                 }
             }
@@ -132,7 +124,6 @@ class ScrapingController extends Controller
         // dd($s_where);
         */
 
-        // $ar = $db->traer(0, $s_where);
         $results = $query->get();
 
         if ($results->count() == 0) {
@@ -147,22 +138,16 @@ class ScrapingController extends Controller
         // dd($content);
 
         foreach ($results as $key => $row) {
-            // unset($row['copia_tel']);
-
             $string = implode("@|@", array_values($row->toArray()));
 
-            $string = str_replace("\r", '', $string); // --- replace with empty space
-            $string = str_replace("\n", ' ', $string); // --- replace with space
-            $string = str_replace("\t", '', $string); // --- replace with space
-            $string = str_replace("@|@", "\t", $string); // --- replace with space
+            // replace special characters
+            $string = str_replace("\r", '', $string);
+            $string = str_replace("\n", ' ', $string);
+            $string = str_replace("\t", '', $string);
+            $string = str_replace("@|@", "\t", $string);
 
             $content .= utf8_decode($string)."\r\n";
         }
-
-        /*
-        header("Content-Disposition: attachment; filename=\"anuncios.xls\"");
-        header("Content-Type: application/vnd.ms-excel");
-        */
 
         return response($content)->withHeaders([
             'Content-Disposition' => 'attachment; filename="anuncios.xls"',
