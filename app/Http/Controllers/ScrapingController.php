@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Lamparin\Anuncio;
 use Illuminate\Http\Request;
+use stdClass;
 
 class ScrapingController extends Controller
 {
@@ -18,8 +19,8 @@ class ScrapingController extends Controller
 
     public function lamparin()
     {
-        // $ar = $db->traer_campos();
-        $ar = [
+        // $fields = $db->traer_campos();
+        $fieldNames = [
             'aviso',
             'tipo',
             'categoria',
@@ -48,43 +49,44 @@ class ScrapingController extends Controller
             'sku',
             'id',
         ];
+
         $combos = [
             'aviso', 'tipo', 'categoria', 'moneda1', 'moneda2', 'region', 'municipio', 'colonia', 'sitio'
         ];
 
-        foreach ($ar as $k=>$v) {
-            if (!in_array($v, $this->stringFields)) {
-                if (in_array($v, $combos)){
-                    $combo = '<select name="'.$v.'">';
-                    $combo .= $this->traer_datos_combo($v);
-                    $combo .= '</select>';
-                    $html_campos[] = '<label for="'.$v.'">'.ucwords(str_replace('_', ' ', $v)).' = </label>'.$combo;
-                } else {
-                    if ($v == 'id') {
-                        $html_campos[] = '<label for="'.$v.'">'.ucwords(str_replace('_', ' ', $v)).' >= </label><input type="text" name="'.$v.'">';
-                    } elseif ($v == 'fecha_anuncio') {
-                        $html_campos[] = '<label for="'.$v.'">'.ucwords(str_replace('_', ' ', $v)).' entre </label><input type="text" name="'.$v.'[]" placeholder="formato: AAAA-MM-DD">&nbsp;&nbsp;y&nbsp;&nbsp;<input type="text" name="'.$v.'[]" placeholder="formato: AAAA-MM-DD">';
+        $fields = [];
+
+        foreach ($fieldNames as $fieldName) {
+            if (!in_array($fieldName, $this->stringFields)) {
+                $field = new stdClass();
+                $field->name = $fieldName;
+                $field->label = ucwords(str_replace('_', ' ', $fieldName));
+                $field->is_select = in_array($fieldName, $combos);
+
+                if ($field->is_select) {
+                    $field->options = $this->getOptionsSelect($fieldName);
+                } /*else {
+                    if ($fieldName == 'id') {
+                        $html_campos[] = '<label for="'.$fieldName.'">' . $label . ' >= </label><input type="text" name="'.$fieldName.'">';
+                    } elseif ($fieldName == 'fecha_anuncio') {
+                        $html_campos[] = '<label for="'.$fieldName.'">' . $label . ' entre </label><input type="text" name="'.$fieldName.'[]" placeholder="formato: AAAA-MM-DD">&nbsp;&nbsp;y&nbsp;&nbsp;<input type="text" name="'.$fieldName.'[]" placeholder="formato: AAAA-MM-DD">';
                     } else {
-                        $html_campos[] = '<label for="'.$v.'">'.ucwords(str_replace('_', ' ', $v)).' = </label><input type="text" name="'.$v.'">';
+                        $html_campos[] = '<label for="'.$fieldName.'">' . $label . ' = </label><input type="text" name="'.$fieldName.'">';
                     }
-                }
+                }*/
+
+                $fields[] = $field;
             }
         }
 
-        return view('scraping.lamparin', compact('html_campos'));
+        // dd($fields);
+        return view('scraping.lamparin', compact('fields'));
     }
 
-    private function traer_datos_combo($field='aviso') {
-        // $sql = 'select distinct '.$p_campo.' as valor from anuncios order by '.$p_campo;
-        $results = Anuncio::select($field)->distinct()->orderBy($field)->pluck($field);
-
-        $options[] = '<option value="">-- Seleccione una opcion --</option>';
-        foreach ($results as $value) {
-            // $valor = $row['valor'];
-            $options[] = '<option value="'.$value.'">'.$value.'</option>';
-        }
-
-        return implode('', $options);
+    private function getOptionsSelect($field='aviso') {
+        // 'select distinct '.$p_campo.' as valor from anuncios order by ' . $p_campo
+        $options = Anuncio::select($field)->distinct()->orderBy($field)->pluck($field);
+        return $options->toArray();
     }
 
     public function generateDownloadLink(Request $request)
