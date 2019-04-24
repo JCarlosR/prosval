@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Lamparin\Anuncio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use stdClass;
 
 class ScrapingController extends Controller
@@ -81,11 +83,16 @@ class ScrapingController extends Controller
     }
 
     private function getOptionsSelect($field='aviso') {
-        // select distinct $field from anuncios order by $field
-        $options = Anuncio::select($field)
-            ->whereNotNull($field)->where($field, '<>', ' ') // avoid empty values for options
-            ->distinct()
-            ->orderBy($field)->pluck($field);
+        $minute = 60;
+        $hour = 60 * $minute;
+
+        $options = Cache::remember("lamparin_select_options_$field", 24 * $hour, function () use ($field) {
+            // select distinct $field from anuncios
+            return Anuncio::select($field)
+                ->whereNotNull($field)->where($field, '<>', ' ') // avoid empty values for options
+                ->distinct()
+                ->orderBy($field)->pluck($field);
+        });
 
         return $options->toArray();
     }
