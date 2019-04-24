@@ -65,6 +65,11 @@ class ScrapingController extends Controller
 
                 if ($field->is_select) {
                     $field->options = $this->getOptionsSelect($fieldName);
+
+                    /*
+                    if ($field->name == 'categoria')
+                        dd($field->options);
+                    */
                 }
 
                 $fields[] = $field;
@@ -77,7 +82,11 @@ class ScrapingController extends Controller
 
     private function getOptionsSelect($field='aviso') {
         // select distinct $field from anuncios order by $field
-        $options = Anuncio::select($field)->distinct()->orderBy($field)->pluck($field);
+        $options = Anuncio::select($field)
+            ->whereNotNull($field)->where($field, '<>', ' ') // avoid empty values for options
+            ->distinct()
+            ->orderBy($field)->pluck($field);
+
         return $options->toArray();
     }
 
